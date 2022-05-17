@@ -1,0 +1,97 @@
+.liquidity-view {
+	.liquidity-card {
+		.ant-card-head-title {
+			font-size: 18px;
+			padding: 12px 0;
+		}
+
+		.ant-card-body {
+			padding: 0;
+
+			.ant-row {
+				&.title-row {
+					padding: 15px 22px 6px;
+				}
+
+				&.liquidity-row {
+					padding: 24px 22px;
+					font-size: 18px;
+					.ant-col {
+						display: flex;
+						align-items: center;
+					}
+				}
+
+				.ant-col {
+					display: flex;
+					align-items: center;
+
+					> img {
+						margin-right: 19px;
+					}
+				}
+			}
+
+			.ant-form-item {
+				padding: 0;
+			}
+		}
+
+		.staking-btn {
+			background: #016eac;
+			border: none;
+			height: 60px;
+			color: white;
+			margin-bottom: 26px;
+			&:hover {
+				background-color: #0186d3;
+			}
+			&[disabled] {
+				color: #8c8c8c;
+				background-color: #f0f0f0;
+				border: none;
+			}
+		}
+
+		.staking-btn-link {
+			background: #016eac;
+			border: none;
+			margin-top: 20;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&:hover {
+				background-color: #0186d3;
+			}
+			&[disabled] {
+				color: #8c8c8c;
+				background-color: #f0f0f0;
+				border: none;
+			}
+		}
+	}
+
+	.expandable-overview {
+		.ant-collapse-content-box {
+			padding: 0;
+		}
+	}
+	.detail-overview-card {
+		width: 100%;
+		.detail-overview-card-row {
+			.detail {
+				.primary {
+					margin: 0;
+					display: inline-block;
+					margin-right: 5px;
+				}
+				.secondary {
+					margin: 0;
+					display: inline-block;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}

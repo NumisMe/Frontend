@@ -1,0 +1,97 @@
+import { useMemo } from 'react'
+import styled from 'styled-components'
+import { Layout, Row, Col, Grid } from 'antd'
+import AccountButton from './components/AccountButton'
+import Nav from './components/Nav'
+import NavTablet from './components/Nav_Tablet'
+// import LanguageSelect from './components/LanguageSelect'
+import NetworkSelect from './components/NetworkSelect'
+import ThemeToggle from '../ThemeToggle'
+
+import logo from '../../assets/img/numisme_logo_transparent.png'
+
+const { Header: BaseHeader } = Layout
+const { useBreakpoint } = Grid
+
+const Logo = () => (
+	<a href="#">
+		<img src={logo} height={55} alt={`NumisMe logo`} style={{marginTop: '10px'}}/>
+	</a>
+)
+
+const Header: React.FC = () => {
+	const { lg } = useBreakpoint()
+
+	const content = useMemo(() => {
+		if (lg)
+			return (
+				<>
+					<Col flex="auto" style={{ color: 'white' }}>
+						<Nav />
+					</Col>
+					<Col>
+						<NetworkSelect />
+					</Col>
+					{/* <Col>
+						<LanguageSelect />
+					</Col> */}
+					<Col>
+						<ThemeToggle />
+					</Col>
+					<StyledAccountButtonWrapper>
+						<AccountButton />
+					</StyledAccountButtonWrapper>
+				</>
+			)
+
+		return (
+			<Col style={{ display: 'flex', alignItems: 'center' }}>
+				<NavTablet />
+			</Col>
+		)
+	}, [lg])
+
+	return (
+		<StyledHeader>
+			<StyledTopBar gutter={4} align="middle">
+				<Col style={{ padding: '0px 13px 13px 2px' }}>
+					<Logo />
+				</Col>
+				{content}
+			</StyledTopBar>
+		</StyledHeader>
+	)
+}
+
+const StyledHeader = styled(BaseHeader)`
+	height: 80px;
+	padding: 0 8%;
+	display: flex;
+	justify-content: center;
+	background: #171717;
+
+	@media only screen and (max-width: 600px) {
+		padding: 0;
+	}
+`
+
+const StyledTopBar = styled(Row)`
+	width: 100%;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	max-width: ${(props) => props.theme.siteWidth}px;
+	@media (max-width: ${(props) => props.theme.siteWidth}px) {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+`
+
+const StyledAccountButtonWrapper = styled(Col)`
+	text-align: right;
+	@media (max-width: ${(props) => props.theme.siteWidth}px) {
+		text-align: center;
+	}
+`
+
+export default Header

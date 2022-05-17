@@ -1,0 +1,128 @@
+@import '~antd/dist/antd.less';
+
+@primary-color: #f8ca02;
+@body-background: #e5e5e5;
+@popover-background: #ffffff;
+@menu-highlight-color: #ffffff;
+@table-row-hover-bg: unset;
+
+// Responsive font-size:
+html {
+	font-size: 100%;
+
+	@media screen and (min-width: 900px) {
+		font-size: 108%;
+	}
+
+	@media screen and (min-width: 1200px) {
+		font-size: 113%;
+	}
+}
+
+body {
+	margin: 0;
+	background: black;
+	font-family: 'DM Sans', sans-serif;
+
+	* {
+		box-sizing: border-box;
+		-webkit-font-smoothing: antialiased;
+		color: inherit;
+	}
+}
+
+.ant-card {
+	border: 2px solid #e7eaec;
+	border-radius: 10px;
+	overflow: hidden;
+	width: 100%;
+
+	.ant-card-head-title {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		> .ant-typography {
+			font-size: 18px;
+			line-height: 23px;
+			margin: 0;
+			font-weight: 700;
+		}
+	}
+
+	& + .ant-card,
+	& + .ant-collapse {
+		margin-top: 16px;
+	}
+}
+
+.ant-collapse {
+	overflow: hidden;
+	border: 2px solid #e7eaec;
+	border-radius: 10px;
+	background-color: white;
+	width: 100%;
+
+	.ant-collapse-item {
+		border: none;
+		.ant-collapse-header {
+			padding: 13px 22px;
+			font-size: 18px;
+			font-weight: 700;
+		}
+
+		.ant-collapse-content {
+			> .ant-collapse-content-box {
+				padding: 0;
+			}
+		}
+	}
+
+	& + .ant-card,
+	& + .ant-collapse {
+		margin-top: 16px;
+	}
+
+	&.ant-collapse-icon-position-right
+		> .ant-collapse-item
+		> .ant-collapse-header
+		.ant-collapse-arrow {
+		right: 24px;
+	}
+}
+
+.ant-tooltip-inner {
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
+.ant-slider-tooltip {
+	.ant-tooltip-content {
+		.ant-tooltip-inner {
+			background-color: white;
+			color: black;
+			border: 1px solid lightgrey;
+		}
+	}
+}
+
+.ant-select-single:not(.ant-select-customize-input) {
+	display: block;
+	width: 100%;
+	.ant-select-selector {
+		height: 60px;
+		padding: 11px 11px;
+
+		.ant-select-selection-item {
+			display: flex;
+			align-items: center;
+			font-size: 18px;
+			img + * {
+				margin-left: 16px;
+			}
+		}
+	}
+}
+
+.ant-layout-header .ant-menu {
+	line-height: 38px;
+}
