@@ -13,8 +13,8 @@ export enum ChainId {
 }
 
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
-const RPC_URL_1 = process.env.REACT_APP_RPC_URL_1
-const RPC_URL_42 = process.env.REACT_APP_RPC_URL_42
+const RPC_URL_1 = "https://mainnet.infura.io/v3/0d73cc5bbe184146957a9d00764db99f";//process.env.REACT_APP_RPC_URL_1
+const RPC_URL_42 = "https://kovan.infura.io/v3/0d73cc5bbe184146957a9d00764db99f";//process.env.REACT_APP_RPC_URL_42
 if (
 	(typeof RPC_URL_1 === 'undefined' || typeof RPC_URL_42 === 'undefined') &&
 	typeof INFURA_KEY === 'undefined'

@@ -5,7 +5,7 @@ import Vault from './views/Vault'
 import VaultDetails from './views/VaultDetails'
 import Liquidity from './views/Liquidity'
 import LiquidityPool from './views/LiquidityPool'
-import Swap from './views/Swap'
+import SwapToken from './views/SwapToken'
 import V3 from './views/V3'
 import Faucet from './views/Faucet'
 import Governance from './views/Governance'
@@ -86,13 +86,13 @@ const App: React.FC = () => {
 
 				{chainInfo.blockchain === 'ethereum' && (
 					<>
-						<Route path="/swap" element={<Swap />} />
+						<Route path="/swap" element={<SwapToken />} />
 						<Route path="/v3" element={<V3 />} />
 						<Route path="/faucet" element={<Faucet />} />
 					</>
 				)}
 				
-				<Route path="/swap" element={<Swap />} />
+				<Route path="/swap" element={<SwapToken />} />
 
 				<Route path="*" element={<Navigate to="/" replace={true} />} />
 			</Routes>
