@@ -10,6 +10,7 @@ import { useWalletLP } from '../../state/wallet/hooks'
 import { usePrices } from '../../state/prices/hooks'
 import { LiquidityPool } from '../../constants/type'
 import Stake from './components/Stake'
+import DoubleLiquidity from './components/DoubleLiquidity'
 import LegacyStake from './components/LegacyStake'
 import { red } from '../../theme/colors'
 import BigNumber from 'bignumber.js'
@@ -75,6 +76,7 @@ const Liquidity: React.FC<Props> = ({ pool }) => {
 				<Row gutter={16}>
 					<Col xs={24} sm={24} md={24} lg={16}>
 						<LiquidityCard pool={pool} />
+						<DoubleLiquidity pool={pool} />
 						{pool?.legacy ? (
 							<LegacyStake
 								pid={pool.pid}
