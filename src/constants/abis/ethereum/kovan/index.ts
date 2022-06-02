@@ -10,6 +10,7 @@ import ERC677Abi from './erc677.json'
 import FeeDistributorABI from './FeeDistributor.json'
 import GaugeABI from './gauge.json'
 import GaugeControllerABI from './GaugeController.json'
+import LPMatchABI from './LPMatch.json'
 import ManagerABI from './Manager.json'
 import MerkleDistributorABI from './MerkleDistributor.json'
 import MinterABI from './minter.json'
@@ -43,6 +44,7 @@ export const abis = {
 	FeeDistributorABI: FeeDistributorABI as JsonFragment[],
 	GaugeABI: GaugeABI as JsonFragment[],
 	GaugeControllerABI: GaugeControllerABI as JsonFragment[],
+	LPMatchABI: LPMatchABI as JsonFragment[],
 	ManagerABI: ManagerABI as JsonFragment[],
 	MerkleDistributorABI: MerkleDistributorABI as JsonFragment[],
 	MinterABI: MinterABI as JsonFragment[],
