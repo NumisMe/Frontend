@@ -29,7 +29,7 @@ const Home = () => {
     if(!tokenSwap) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        tokenSwap = new ethers.Contract("0x48a6516c3dB55cda6557a94AbD6f6c30f5D3dcD0", abi, signer);
+        tokenSwap = new ethers.Contract("0x7bD1b0D6aF500D1AF012bEAAEcCe82474867F001", abi, signer);
     }
     if (!tokenSwap || !account) {
       return;
@@ -47,7 +47,7 @@ const Home = () => {
     if (!tokenSwap) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        tokenSwap = new ethers.Contract("0x48a6516c3dB55cda6557a94AbD6f6c30f5D3dcD0", abi, signer);
+        tokenSwap = new ethers.Contract("0x7bD1b0D6aF500D1AF012bEAAEcCe82474867F001", abi, signer);
     }
     console.log("h2");
     await tokenSwap.claim();
