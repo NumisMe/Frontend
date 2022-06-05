@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import * as currencies from '../../../constants/currencies'
 import useContractWrite from '../../../hooks/useContractWrite'
 import { useWalletLP, useNativeBalances } from '../../../state/wallet/hooks'
@@ -15,6 +15,7 @@ import { ethers } from 'ethers'
 import useTranslation from '../../../hooks/useTranslation'
 import { LiquidityPool } from '../../../constants/type'
 import useWeb3Provider from '../../../hooks/useWeb3Provider'
+import { useContracts } from '../../../contexts/Contracts'
 
 const { Text } = Typography
 
@@ -32,10 +33,79 @@ const TableHeader = (props: any) => (
 
 const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 	const translate = useTranslation()
+	const { contracts } = useContracts()
+	const { account } = useWeb3Provider()
+	const [nativeBalance, setNativeBalance] = useState<BigNumber>(
+		new BigNumber(0),
+	)
+	const [userLP, setUserLP] = useState<BigNumber>(new BigNumber(0))
+
+	useEffect(() => {
+		if (!contracts || !account) {
+			return
+		}
+
+		const fetchData = async () => {
+			setNativeBalance(
+				new BigNumber(
+					(
+						await contracts.external.multicall.getEthBalance(
+							account,
+						)
+					).toString(),
+				),
+			)
+			setUserLP(
+				new BigNumber(
+					(
+						await contracts.internal['LPMatch'].userLP(account)
+					).toString(),
+				),
+			)
+		}
+
+		fetchData()
+	}, [contracts, account])
+
 	const currency = useMemo(
 		() => currencies[`${pool.type.toUpperCase()}_LP`],
 		[pool.type],
 	)
+
+	const [depositAmount, setDeposit] = useState<string>('')
+	const updateDeposit = (value: string) =>
+		!isNaN(Number(value)) && setDeposit(value)
+	const errorDeposit = useMemo(
+		() =>
+			new BigNumber(depositAmount).gt(nativeBalance.dividedBy(10 ** 18)),
+		[nativeBalance, depositAmount],
+	)
+	const depositDisabled = useMemo(
+		() =>
+			depositAmount === '' ||
+			new BigNumber(depositAmount).isZero() ||
+			errorDeposit,
+		[depositAmount, errorDeposit],
+	)
+	const onMaxDeposit = () =>
+		setDeposit(nativeBalance.dividedBy(10 ** 18).toString() || '0')
+
+	const [withdrawAmount, setWithdraw] = useState<string>('')
+	const updateWithdraw = (value: string) =>
+		!isNaN(Number(value)) && setWithdraw(value)
+	const errorWithdraw = useMemo(
+		() => new BigNumber(withdrawAmount).gt(userLP.dividedBy(10 ** 18)),
+		[userLP, withdrawAmount],
+	)
+	const withdrawDisabled = useMemo(
+		() =>
+			withdrawAmount === '' ||
+			new BigNumber(withdrawAmount).isZero() ||
+			errorWithdraw,
+		[withdrawAmount, errorWithdraw],
+	)
+	const onMaxWithdraw = () =>
+		setWithdraw(userLP?.dividedBy(10 ** 18).toString() || '0')
 
 	const { call: handleAddLiquidity, loading: loadingAddLiquidity } =
 		useContractWrite({
@@ -50,46 +120,6 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 			description: `withdrawLP`,
 		},
 	)
-
-	const { account } = useWeb3Provider()
-	const nativeBalance = useNativeBalances([account])[account]
-
-	const { userLP } = useLPMatch()
-
-	const [depositAmount, setDeposit] = useState<string>('')
-	const updateDeposit = (value: string) =>
-		!isNaN(Number(value)) && setDeposit(value)
-	const errorDeposit = useMemo(
-		() => new BigNumber(depositAmount).gt(nativeBalance.amount),
-		[nativeBalance, depositAmount],
-	)
-	const depositDisabled = useMemo(
-		() =>
-			depositAmount === '' ||
-			new BigNumber(depositAmount).isZero() ||
-			errorDeposit,
-		[depositAmount, errorDeposit],
-	)
-	const onMaxDeposit = () =>
-		setDeposit(nativeBalance?.amount.toString() || '0')
-
-	const [withdrawAmount, setWithdraw] = useState<string>('')
-	const updateWithdraw = (value: string) =>
-		!isNaN(Number(value)) && setWithdraw(value)
-	const errorWithdraw = useMemo(
-		() => new BigNumber(withdrawAmount).gt(userLP.amount),
-		[userLP?.amount, withdrawAmount],
-	)
-	const withdrawDisabled = useMemo(
-		() =>
-			withdrawAmount === '' ||
-			new BigNumber(withdrawAmount).isZero() ||
-			errorWithdraw,
-		[withdrawAmount, errorWithdraw],
-	)
-
-	const onMaxWithdraw = () => setWithdraw(userLP?.amount.toString() || '0')
-
 	return (
 		<Card
 			className="double-liquidity-card"
@@ -123,7 +153,7 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 								alt="logo"
 							/>
 							<Value
-								value={getBalanceNumber(nativeBalance?.value)}
+								value={getBalanceNumber(nativeBalance)}
 								decimals={2}
 								numberSuffix={` ${currencies.ETH.name}`}
 							/>
@@ -136,7 +166,7 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 						>
 							<img src={currency.icon} height="24" alt="logo" />
 							<Value
-								value={getBalanceNumber(userLP?.value)}
+								value={getBalanceNumber(userLP)}
 								decimals={2}
 								numberSuffix={` ${pool.symbol}`}
 							/>
@@ -154,7 +184,7 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 								placeholder="0"
 								disabled={
 									loadingAddLiquidity ||
-									nativeBalance?.value.isZero()
+									nativeBalance.isZero()
 								}
 								onClickMax={onMaxDeposit}
 							/>
@@ -181,9 +211,7 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 								value={withdrawAmount}
 								min={'0'}
 								placeholder="0"
-								disabled={
-									loadingWithdraw || userLP?.value.isZero()
-								}
+								disabled={loadingWithdraw || userLP.isZero()}
 								onClickMax={onMaxWithdraw}
 							/>
 						</Form.Item>
