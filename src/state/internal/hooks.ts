@@ -33,6 +33,7 @@ import { BaseChainInfo } from '../../constants/chains'
 import { TVaults } from '../../constants/type'
 import { useChainInfo } from '../user'
 import { LiquidityPoolWithContract } from '../../constants/contracts/avalanche'
+import useWeb3Provider from '../../hooks/useWeb3Provider'
 
 const STRATEGY_INTERFACE = new ethers.utils.Interface(abis.StrategyABI)
 
@@ -1165,4 +1166,27 @@ export function useRewardRate() {
 		const { result } = rate
 		return new BigNumber(result?.toString() || 0).dividedBy(10 ** 18)
 	}, [rate])
+}
+
+export function useLPMatch() {
+	const { contracts } = useContracts()
+	const { account } = useWeb3Provider()
+
+	const userLP = useSingleCallResult(
+		contracts?.internal['LPMatch'],
+		'userLP',
+		[account],
+	)
+
+	return useMemo(() => {
+		const { result } = userLP
+		return {
+			userLP: {
+				value: new BigNumber(result?.toString() || 0),
+				amount: new BigNumber(result?.toString() || 0).dividedBy(
+					10 ** 18,
+				),
+			},
+		}
+	}, [userLP])
 }

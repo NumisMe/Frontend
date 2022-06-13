@@ -113,6 +113,7 @@ const mainnet: EthereumConfig = {
 		yaxisChef: '0xc330e7e73717cd13fb6ba068ee871584cf8a194f',
 		xYaxStaking: '0xeF31Cb88048416E301Fee1eA13e7664b887BA7e8',
 		yAxisMetaVault: '0xBFbEC72F2450eF9Ab742e4A27441Fa06Ca79eA6a',
+		LPMatch: '0xbbf97cb21e9b56d34c3a719d36af362e6c5d6eb1',
 	},
 	rewards: {
 		MetaVault: '0x226f9954A1221cDe805C76CfB312A5d761630E14',

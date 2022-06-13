@@ -163,6 +163,7 @@ export function useCurvePoolRewards(
 
 	const relativeWeight = useSingleCallResult(
 		active &&
+			contracts &&
 			'gaugeController' in contracts?.external &&
 			contracts?.external?.gaugeController,
 		'gauge_relative_weight(address)',
