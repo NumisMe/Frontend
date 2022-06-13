@@ -14,7 +14,7 @@ const InvestmentDetailOverview: React.FC<Props> = ({
 }) => {
 	const translate = useTranslation()
 	return (
-		<Card title={translate('Account Overview')} icon="yaxis">
+		<Card title={translate('Account Overview')} icon="verticalbars">
 			<ClaimAll />
 			{/* <CardRow
 				main={

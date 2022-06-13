@@ -46,7 +46,7 @@ export default function HomeOverviewCard() {
 	} = useReturns()
 
 	return (
-		<Card title={translate('Your Lifetime Earnings')} icon="coins">
+		<Card title={translate('Your Lifetime Earnings')} icon="verticalbars">
 			<CardRow
 				main={
 					<StyledText>

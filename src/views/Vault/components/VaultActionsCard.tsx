@@ -120,7 +120,7 @@ const VaultActionsCard: React.FC<VaultActionsCardProps> = ({
 
 	const autoStake = useVaultAutoStake()
 	const isYaxisDetails = useMemo(
-		() => vaults.every(([vault]) => vault === 'yaxis'),
+		 () => false ,//vaults.every(([vault]) => vault === 'yaxis'),
 		[vaults],
 	)
 
@@ -149,7 +149,7 @@ const VaultActionsCard: React.FC<VaultActionsCardProps> = ({
 
 	const vaultsWithoutYAXIS = useMemo(
 		// NOTE: YAXIS vault deprecated in YIP-14
-		() => vaults.filter(([vault]) => vault !== 'yaxis'),
+		() => vaults,//.filter(([vault]) => vault !== 'yaxis'),
 		[vaults],
 	)
 

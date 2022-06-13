@@ -82,28 +82,28 @@ export function useVault(name: TVaults) {
 export function useYaxisGauge() {
 	const { contracts } = useContracts()
 
-	const gaugeData = useSingleContractMultipleMethods(
-		contracts?.vaults && 'yaxis' in contracts?.vaults
-			? contracts?.vaults.yaxis.gauge
-			: null,
-		[['working_supply'], ['totalSupply']],
-	)
+	// const gaugeData = useSingleContractMultipleMethods(
+	// 	contracts?.vaults && 'yaxis' in contracts?.vaults
+	// 		? contracts?.vaults.yaxis.gauge
+	// 		: null,
+	// 	[['working_supply'], ['totalSupply']],
+	// )
 
 	return useMemo(() => {
-		const [working_supply, totalSupply] = gaugeData.map(
-			({ result, loading }, i) => {
-				if (loading) return ethers.BigNumber.from(0)
-				if (!result) return ethers.BigNumber.from(0)
-				return result
-			},
-		)
+		// const [working_supply, totalSupply] = gaugeData.map(
+		// 	({ result, loading }, i) => {
+		// 		if (loading) return ethers.BigNumber.from(0)
+		// 		if (!result) return ethers.BigNumber.from(0)
+		// 		return result
+		// 	},
+		// )
 
 		return {
-			balance: new BigNumber(working_supply?.toString()),
-			totalSupply: new BigNumber(totalSupply?.toString()),
+			balance: new BigNumber('0'),
+			totalSupply: new BigNumber('0'),
 			pricePerFullShare: new BigNumber(1),
 		}
-	}, [gaugeData])
+	}, [])
 }
 
 export function useVaultRewards(
@@ -234,18 +234,13 @@ type ReturnVaultsAPR = BaseVaultsAPR & {
 export function useVaultsAPR() {
 	/* ETHEREUM */
 	const usd = useVaultRewards('usd', 'ethereum')
-	const btc = useVaultRewards('btc', 'ethereum')
 	const eth = useVaultRewards('eth', 'ethereum')
-	const link = useVaultRewards('link', 'ethereum')
 	const frax = useVaultRewards('frax', 'ethereum')
 	const tricrypto = useVaultRewards('tricrypto', 'ethereum')
 	const cvx = useVaultRewards('cvx', 'ethereum')
-	const yaxis = useVaultRewards('yaxis', 'ethereum')
 
 	const mim3crv = useConvexAPY('mim3crv')
-	const rencrv = useConvexAPY('rencrv')
 	const alethcrv = useConvexAPY('alethcrv')
-	const linkcrv = useConvexAPY('linkcrv')
 	const crvcvxeth = useConvexAPY('crvcvxeth', true)
 	const crv3crypto = useConvexAPY('crv3crypto', true)
 	const frax3crv = useConvexAPY('frax3crv')
@@ -301,26 +296,12 @@ export function useVaultsAPR() {
 					},
 					strategy: mim3crv,
 				},
-				btc: {
-					yaxisAPR: {
-						min: btc.minAPR,
-						max: btc.maxAPR,
-					},
-					strategy: rencrv,
-				},
 				eth: {
 					yaxisAPR: {
 						min: eth.minAPR,
 						max: eth.maxAPR,
 					},
 					strategy: alethcrv,
-				},
-				link: {
-					yaxisAPR: {
-						min: link.minAPR,
-						max: link.maxAPR,
-					},
-					strategy: linkcrv,
 				},
 				cvx: {
 					yaxisAPR: {
@@ -343,29 +324,17 @@ export function useVaultsAPR() {
 					},
 					strategy: frax3crv,
 				},
-				yaxis: {
-					yaxisAPR: {
-						min: yaxis.minAPR,
-						max: yaxis.maxAPR,
-					},
-					strategy: null,
-				},
 			},
 		}
 		return output
 	}, [
 		usd,
-		btc,
 		eth,
-		link,
 		cvx,
 		tricrypto,
 		frax,
-		yaxis,
 		mim3crv,
-		rencrv,
 		alethcrv,
-		linkcrv,
 		crvcvxeth,
 		crv3crypto,
 		frax3crv,
@@ -379,9 +348,7 @@ type useVaultsReturn = {
 export function useVaults(): useVaultsReturn {
 	/** ETHEREUM  */
 	const usd = useVault('usd')
-	const btc = useVault('btc')
 	const eth = useVault('eth')
-	const link = useVault('link')
 	const frax = useVault('frax')
 	const tricrypto = useVault('tricrypto')
 	const cvx = useVault('cvx')
@@ -396,9 +363,7 @@ export function useVaults(): useVaultsReturn {
 	return useMemo(() => {
 		return {
 			usd,
-			btc,
 			eth,
-			link,
 			frax,
 			tricrypto,
 			cvx,
@@ -410,9 +375,7 @@ export function useVaults(): useVaultsReturn {
 		}
 	}, [
 		usd,
-		btc,
 		eth,
-		link,
 		frax,
 		tricrypto,
 		cvx,

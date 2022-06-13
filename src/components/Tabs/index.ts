@@ -8,7 +8,7 @@ const StyledTabs = styled(Tabs)`
 		background: ${(props) => props.theme.secondary.background};
 
 		.ant-tabs-ink-bar {
-			background: #016eac;
+			background: #f8ca04;
 		}
 
 		.ant-tabs-tab {
@@ -25,7 +25,7 @@ const StyledTabs = styled(Tabs)`
 			&.ant-tabs-tab-active {
 				.ant-tabs-tab-btn {
 					font-weight: 700;
-					color: #016eac;
+					color: #f8ca04;
 				}
 			}
 		}

@@ -123,7 +123,7 @@ interface WithdrawTableProps {
 }
 
 const WithdrawTable: React.FC<WithdrawTableProps> = ({ fees, vaults }) => {
-	const VaultsNoYAXIS = vaults.filter(([vault]) => vault !== 'yaxis')
+	const VaultsNoYAXIS = vaults;//.filter(([vault]) => vault === 'yaxis')
 
 	const translate = useTranslation()
 

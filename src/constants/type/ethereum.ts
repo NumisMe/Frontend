@@ -102,9 +102,7 @@ export type TInternalContracts = typeof InternalContracts[number]
 
 export const CurveLPContracts = <const>[
 	'mim3crv',
-	'rencrv',
 	'alethcrv',
-	'linkcrv',
 	'3pool',
 	'crvcvxeth',
 	'crv3crypto',
@@ -140,10 +138,7 @@ export type TExternalContracts = typeof ExternalContracts[number]
 
 export const Vaults = <const>[
 	'usd',
-	'btc',
 	'eth',
-	'link',
-	'yaxis',
 	'cvx',
 	'tricrypto',
 	'frax',

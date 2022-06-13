@@ -5,7 +5,7 @@ import { abis as mainnet } from './mainnet'
 
 const avalanche = {
 	[ChainId.AVALANCHE_FUJI]: fuji,
-	[ChainId.AVALANCHE_MAINNET]: mainnet,
+	//[ChainId.AVALANCHE_MAINNET]: mainnet,
 }
 
 export default avalanche

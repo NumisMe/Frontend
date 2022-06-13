@@ -9,7 +9,7 @@ export enum ChainId {
 	ETHEREUM_KOVAN = 42,
 
 	AVALANCHE_FUJI = 43113,
-	AVALANCHE_MAINNET = 43114,
+	//AVALANCHE_MAINNET = 43114,
 }
 
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
@@ -39,7 +39,7 @@ export type L1_CHAIN = 'avalanche' | 'ethereum'
 export const L1_CHAIN_IDS = [
 	ChainId.ETHEREUM_MAINNET,
 	ChainId.ETHEREUM_KOVAN,
-	ChainId.AVALANCHE_MAINNET,
+	//ChainId.AVALANCHE_MAINNET,
 	ChainId.AVALANCHE_FUJI,
 ] as const
 
@@ -62,7 +62,7 @@ export const NETWORK_URLS: { [key in ChainId]: string } = {
 		RPC_URL_1 || `https://mainnet.infura.io/v3/${INFURA_KEY}`,
 	[ChainId.ETHEREUM_KOVAN]:
 		RPC_URL_42 || `https://kovan.infura.io/v3/${INFURA_KEY}`,
-	[ChainId.AVALANCHE_MAINNET]: 'https://api.avax.network/ext/bc/C/rpc',
+	//[ChainId.AVALANCHE_MAINNET]: 'https://api.avax.network/ext/bc/C/rpc',
 	[ChainId.AVALANCHE_FUJI]: 'https://api.avax-test.network/ext/bc/C/rpc',
 }
 
@@ -156,23 +156,23 @@ export const CHAIN_INFO: ChainInfoMap = {
 		},
 		yaxisUrl: '',
 	},
-	[ChainId.AVALANCHE_MAINNET]: {
-		chainId: ChainId.AVALANCHE_MAINNET,
-		blockchain: 'avalanche',
-		networkType: NetworkType.L1,
-		blocktime: 1_000,
-		docs: '',
-		explorer: 'https://snowtrace.io',
-		infoLink: '',
-		label: 'Avalanche',
-		logoUrl: avalancheLogo,
-		addNetworkInfo: {
-			nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 18 },
-			rpcUrl: NETWORK_URLS[ChainId.AVALANCHE_MAINNET],
-		},
-		yaxisUrl:
-			'https://traderjoexyz.com/trade?inputCurrency=0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7&outputCurrency=0x91A1700835230B8b3B06B5B3DD1Fe70D48ACbd91#/',
-	},
+	// [ChainId.AVALANCHE_MAINNET]: {
+	// 	chainId: ChainId.AVALANCHE_MAINNET,
+	// 	blockchain: 'avalanche',
+	// 	networkType: NetworkType.L1,
+	// 	blocktime: 1_000,
+	// 	docs: '',
+	// 	explorer: 'https://snowtrace.io',
+	// 	infoLink: '',
+	// 	label: 'Avalanche',
+	// 	logoUrl: avalancheLogo,
+	// 	addNetworkInfo: {
+	// 		nativeCurrency: { name: 'Avalanche', symbol: 'AVAX', decimals: 18 },
+	// 		rpcUrl: NETWORK_URLS[ChainId.AVALANCHE_MAINNET],
+	// 	},
+	// 	yaxisUrl:
+	// 		'https://traderjoexyz.com/trade?inputCurrency=0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7&outputCurrency=0x91A1700835230B8b3B06B5B3DD1Fe70D48ACbd91#/',
+	// },
 	[ChainId.AVALANCHE_FUJI]: {
 		chainId: ChainId.AVALANCHE_FUJI,
 		blockchain: 'avalanche',

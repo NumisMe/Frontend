@@ -36,7 +36,7 @@ export function getLibrary(provider: any) {
 	return library
 }
 
-export const SUPPORTED_NETWORKS = [1, 42, 43114]
+export const SUPPORTED_NETWORKS = [1, 42]
 
 export const NETWORK_NAMES = { 1: 'mainnet', 42: 'kovan' }
 export const FRIENDLY_NETWORK_NAMES = {

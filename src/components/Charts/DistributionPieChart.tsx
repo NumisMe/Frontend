@@ -12,10 +12,7 @@ const { Title } = Typography
 
 const Colors: { [vault in TVaults]: [number, number, number] } = {
 	usd: [0, 150, 0],
-	btc: [255, 159, 64],
 	eth: [77, 97, 233],
-	link: [24, 45, 142],
-	yaxis: [0, 0, 0],
 	frax: [54, 162, 235],
 	tricrypto: [255, 99, 132],
 	cvx: [153, 102, 255],

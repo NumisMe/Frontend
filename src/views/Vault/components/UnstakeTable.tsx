@@ -274,7 +274,7 @@ const WithdrawTable: React.FC<UnstakeTableProps> = ({ fees, vaults }) => {
 			(v) => parseFloat(v) > 0,
 		)
 		const insufficientBalance = !!vaults.find(([vault]) => {
-			const vaultToken = vault === 'yaxis' ? 'yaxis' : `cv:${vault}`
+			const vaultToken = `cv:${vault}`
 			const gaugeToken = `${vaultToken}-gauge`
 			const value = new BigNumber(currencyValues[gaugeToken] || 0)
 			const currency = balances[vault].gaugeToken
@@ -312,7 +312,7 @@ const WithdrawTable: React.FC<UnstakeTableProps> = ({ fees, vaults }) => {
 	const handleSubmit = useCallback(async () => {
 		const transactions = vaults.reduce<[string, string][]>(
 			(previous, [vault]) => {
-				const vaultToken = vault === 'yaxis' ? 'yaxis' : `cv:${vault}`
+				const vaultToken = `cv:${vault}`
 				const gaugeToken = `${vaultToken}-gauge`
 				const _v = currencyValues[gaugeToken]
 				if (_v)
@@ -353,7 +353,7 @@ const WithdrawTable: React.FC<UnstakeTableProps> = ({ fees, vaults }) => {
 	const data = useMemo(
 		() =>
 			vaults.map<TableDataEntry>(([vault, contracts]) => {
-				const vaultToken = vault === 'yaxis' ? 'yaxis' : `cv:${vault}`
+				const vaultToken = `cv:${vault}`
 				const gaugeToken = `${vaultToken}-gauge`
 				const currency = Currencies[gaugeToken.toUpperCase()]
 				const balance =

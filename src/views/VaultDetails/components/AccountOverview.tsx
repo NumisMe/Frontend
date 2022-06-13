@@ -35,7 +35,7 @@ const InvestmentDetailOverview: React.FC<Props> = ({
 	const { boost } = useUserBoost(vault)
 
 	return (
-		<Card title={t('Account Overview')} icon="yaxis">
+		<Card title={t('Account Overview')} icon="coins">
 			<CardRow
 				main={
 					// <Tooltip

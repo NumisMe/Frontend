@@ -417,7 +417,7 @@ const StakeTable: React.FC<StakeTableProps> = ({ fees, vaults }) => {
 	const handleSubmit = useCallback(async () => {
 		const transactions = vaults.reduce<[string, string][]>(
 			(previous, [vault]) => {
-				const vaultToken = vault === 'yaxis' ? 'yaxis' : `cv:${vault}`
+				const vaultToken = `cv:${vault}`
 				const _v = currencyValues[vaultToken]
 
 				if (_v)

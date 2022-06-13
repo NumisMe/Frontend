@@ -898,25 +898,25 @@ export function useVaultsBalances() {
 		}, defaultState)
 
 		// Add YAXIS Gauge data
-		const yaxisGauge = vaults.yaxis
-		const yaxisVaultToken = balances['yaxis']
-		const yaxisGaugeToken = balances['yaxis-gauge']
-		const yaxisTotalToken = (
-			yaxisVaultToken?.amount || new BigNumber(0)
-		).plus(yaxisGaugeToken?.amount || new BigNumber(0))
-		const yaxisUsd = (yaxisGaugeToken?.amount || new BigNumber(0))
-			.multipliedBy(1)
-			.multipliedBy(prices['yaxis'])
-		withData.balances.yaxis = {
-			...yaxisGauge,
-			vaultToken: yaxisVaultToken,
-			gaugeToken: yaxisGaugeToken,
-			totalToken: yaxisTotalToken,
-			usd: yaxisUsd,
-			lpTokenPrice: new BigNumber(prices['yaxis']),
-			vaultTokenPrice: new BigNumber(prices['yaxis']),
-		}
-		withData.total.usd = withData.total.usd.plus(yaxisUsd)
+		// const yaxisGauge = vaults.yaxis
+		// const yaxisVaultToken = balances['yaxis']
+		// const yaxisGaugeToken = balances['yaxis-gauge']
+		// const yaxisTotalToken = (
+		// 	yaxisVaultToken?.amount || new BigNumber(0)
+		// ).plus(yaxisGaugeToken?.amount || new BigNumber(0))
+		// const yaxisUsd = (yaxisGaugeToken?.amount || new BigNumber(0))
+		// 	.multipliedBy(1)
+		// 	.multipliedBy(prices['yaxis'])
+		// withData.balances.yaxis = {
+		// 	...yaxisGauge,
+		// 	vaultToken: yaxisVaultToken,
+		// 	gaugeToken: yaxisGaugeToken,
+		// 	totalToken: yaxisTotalToken,
+		// 	usd: yaxisUsd,
+		// 	lpTokenPrice: new BigNumber(prices['yaxis']),
+		// 	vaultTokenPrice: new BigNumber(prices['yaxis']),
+		// }
+		// withData.total.usd = withData.total.usd.plus(yaxisUsd)
 
 		return withData
 	}, [vaults, balances, prices, loading])
@@ -1227,13 +1227,10 @@ type useUserBoostReturn = {
 export function useBoosts(): useUserBoostReturn {
 	/** Ethereum */
 	const usd = useUserBoost('usd')
-	const btc = useUserBoost('btc')
 	const eth = useUserBoost('eth')
-	const link = useUserBoost('link')
 	const cvx = useUserBoost('cvx')
 	const tricrypto = useUserBoost('tricrypto')
 	const frax = useUserBoost('frax')
-	const yaxis = useUserBoost('yaxis')
 
 	/** Avalanche */
 	const av3crv = useUserBoost('av3crv')
@@ -1245,13 +1242,10 @@ export function useBoosts(): useUserBoostReturn {
 	return useMemo(() => {
 		return {
 			usd,
-			btc,
 			eth,
-			link,
 			cvx,
 			tricrypto,
 			frax,
-			yaxis,
 			av3crv,
 			atricrypto,
 			avax,
@@ -1260,13 +1254,10 @@ export function useBoosts(): useUserBoostReturn {
 		}
 	}, [
 		usd,
-		btc,
 		eth,
-		link,
 		cvx,
 		tricrypto,
 		frax,
-		yaxis,
 		avax,
 		wavax,
 		joewavax,

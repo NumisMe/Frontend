@@ -101,25 +101,27 @@ const NetworkSelect: React.FC = () => {
 				<Menu.ItemGroup
 					key={'network-select-bridge'}
 					title={
-						<Row
-							align="middle"
-							justify="center"
-							style={{
-								height: '40px',
-								fontSize: '16px',
-							}}
-						>
-							<Button height={'40px'}>
-								<a
-									href="https://app.multichain.org/#/router"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									Bridge YAXIS
-									{/* TODO: translation */}
-								</a>
-							</Button>
-						</Row>
+						<></>
+						// <Row
+						// 	align="middle"
+						// 	justify="center"
+						// 	style={{
+						// 		height: '40px',
+						// 		fontSize: '16px',
+						// 	}}
+						// >
+
+						// 	{/* <Button height={'40px'}>
+						// 		<a
+						// 			href="https://app.multichain.org/#/router"
+						// 			target="_blank"
+						// 			rel="noopener noreferrer"
+						// 		>
+						// 			Bridge YAXIS
+						// 			{/* TODO: translation }
+						// 		</a>
+						// 	</Button> }
+						// </Row>
 					}
 				/>
 			</StyledSubMenu>

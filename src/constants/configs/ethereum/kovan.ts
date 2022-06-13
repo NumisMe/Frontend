@@ -45,24 +45,10 @@ const externalPools: EthereumExternalPoolsConfig = {
 			gauge: '0xCD7C79e7A0678af31a3b5b0aFc5dd89aB734feD8',
 			convexRewards: '0xFDAc13A5f54A7f1784FE2d1AA6fA30ee5C92fcb8', // needs mock
 		},
-		rencrv: {
-			currency: 'btc',
-			pool: '0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7',
-			token: '',
-			gauge: '0xCD7C79e7A0678af31a3b5b0aFc5dd89aB734feD8',
-			convexRewards: '0xFDAc13A5f54A7f1784FE2d1AA6fA30ee5C92fcb8', // needs mock
-		},
 		alethcrv: {
 			currency: 'eth',
 			pool: '0x459416729cDC9345c20dd6D9eFC047e0CbB3842e',
 			token: '0x59C9B21eDdBFC04Cb453f49b7f3dA18d0F573838',
-			gauge: '0xCD7C79e7A0678af31a3b5b0aFc5dd89aB734feD8',
-			convexRewards: '0xFDAc13A5f54A7f1784FE2d1AA6fA30ee5C92fcb8', // needs mock
-		},
-		linkcrv: {
-			currency: 'link',
-			pool: '0xF0cCAbb34899652eFea9751616fd94A73E4bD501',
-			token: '',
 			gauge: '0xCD7C79e7A0678af31a3b5b0aFc5dd89aB734feD8',
 			convexRewards: '0xFDAc13A5f54A7f1784FE2d1AA6fA30ee5C92fcb8', // needs mock
 		},
@@ -109,16 +95,6 @@ const kovan: EthereumConfig = {
 			vaultTokenContract: '0x3cF8802D91C0560b54A5CeEC6da108B7b2946BdB',
 			gauge: '0xEc8E054A174B38edC5894187A55AE2D47c1f04eD',
 		},
-		btc: {
-			url: 'https://curve.fi/ren/deposit',
-			tokenPoolContract: '0xa2373Ffc62cA0CA01aE9edfFC19762E3fC75F99C',
-			token: 'RENCRV',
-			tokenContract: '0xA8A28853C2CefF3f7B4EC75A07E7B84d637B9a88',
-			vault: '0xF269F793F2a774d4019F22C7D519f1e748643C9a',
-			vaultToken: 'CV:BTC',
-			vaultTokenContract: '0xb5b089B18a3EEFEf762484A279B72F666eFD4d31',
-			gauge: '0x2CDD8dd06b6854ABDF1cD050356efEBfde0c9E7E',
-		},
 		eth: {
 			url: 'https://curve.fi/factory/38/deposit',
 			token: 'alETHCRV',
@@ -128,26 +104,6 @@ const kovan: EthereumConfig = {
 			vaultToken: 'CV:ETH',
 			vaultTokenContract: '0x56b27181fa92DFC5909F1B537f0D5A5929Fbc765',
 			gauge: '0xCD7C79e7A0678af31a3b5b0aFc5dd89aB734feD8',
-		},
-		link: {
-			url: 'https://curve.fi/link/deposit',
-			tokenPoolContract: '0xa2373Ffc62cA0CA01aE9edfFC19762E3fC75F99C',
-			token: 'LINKCRV',
-			tokenContract: '0x540c8a922Cc7E186AA0fd63b0B6aEDd5B5F08007',
-			vault: '0x41A757B13d49f56A69Ec78093a823730747D8D61',
-			vaultToken: 'CV:LINK',
-			vaultTokenContract: '0x8e71cB2Ca5E21DA64237E88e9ba5E52403341117',
-			gauge: '0xf22940B7Ce3aF6a462F06657f78862CaC456D2F1',
-		},
-		yaxis: {
-			url: '',
-			tokenPoolContract: '',
-			token: 'YAXIS',
-			tokenContract: '',
-			vault: '',
-			vaultToken: 'YAXIS',
-			vaultTokenContract: currencies.ERC677.yaxis,
-			gauge: '0x9a6Bf749a57fDCDFf8cbD69B39202aAd5a73E4E1',
 		},
 		cvx: {
 			url: 'https://curve.fi/cvxeth/',

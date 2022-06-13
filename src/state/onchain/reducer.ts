@@ -37,7 +37,7 @@ const initialState: MulticallState = {
 		1: {},
 		42: {},
 		43113: {},
-		43114: {},
+		//43114: {},
 	},
 }
 
