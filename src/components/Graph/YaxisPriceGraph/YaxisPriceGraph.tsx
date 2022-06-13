@@ -45,7 +45,7 @@ const PriceGraph: React.FC = () => {
 	const [selectedDay, setDate] = useState<SelectableDay>(dayOptions[3])
 
 	const {
-		prices: { yaxis: yaxisPrice },
+		prices: { nume: numePrice },
 	} = usePrices()
 
 	const windowWidth = useWindowWidth()
@@ -88,12 +88,12 @@ const PriceGraph: React.FC = () => {
 						<Row>
 							<Col style={{ paddingRight: '10px' }}>
 								<StyledText>
-									<strong>{translate('YAXIS Price')}:</strong>
+									<strong>{'NUME Price'}:</strong>
 								</StyledText>
 							</Col>
 							<Col>
 								<StyledText>
-									${new BigNumber(yaxisPrice).toFixed(2)}
+									${new BigNumber(numePrice).toFixed(3)}
 								</StyledText>
 							</Col>
 						</Row>

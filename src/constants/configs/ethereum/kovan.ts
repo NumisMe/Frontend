@@ -201,10 +201,10 @@ const kovan: EthereumConfig = {
 	rewards: {
 		MetaVault: '0xFDAc13A5f54A7f1784FE2d1AA6fA30ee5C92fcb8',
 		Yaxis: '0x361B4D521Cd9553e42af65985bb2038CcbbCEb96',
-		'Uniswap YAXIS/ETH': '0x23eEE2ce498D9239a034a225d7Be91fb8D69EdBc',
+		'Uniswap NUME/ETH': '0x23eEE2ce498D9239a034a225d7Be91fb8D69EdBc',
 	},
 	pools: {
-		'Uniswap YAXIS/ETH': {
+		'Uniswap NUME/ETH': {
 			active: true,
 			legacy: false,
 			type: 'uniswap',
@@ -220,13 +220,13 @@ const kovan: EthereumConfig = {
 				},
 			],
 			tokenAddress: currencies.ERC677.yaxis,
-			name: 'Uniswap YAXIS/ETH',
+			name: 'Uniswap NUME/ETH',
 			symbol: 'YAXIS/ETH UNI-V2 LP',
 			tokenSymbol: 'YAXIS_ETH_UNISWAP_LP',
 			icon: '',
-			rewards: 'Uniswap YAXIS/ETH',
+			rewards: 'Uniswap NUME/ETH',
 		},
-		'Uniswap YAX/ETH': {
+		'LP Double Up Program (Invite Only)': {
 			pid: 6,
 			active: false,
 			legacy: true,
@@ -243,33 +243,11 @@ const kovan: EthereumConfig = {
 				},
 			],
 			tokenAddress: currencies.ERC20.yax,
-			name: 'Uniswap YAX/ETH',
+			name: 'LP Double Up Program (Invite Only)',
 			symbol: 'YAX/ETH UNI-V2 LP',
 			tokenSymbol: 'YAX_ETH_UNISWAP_LP',
 			icon: '',
-		},
-		'Linkswap YAX/ETH': {
-			pid: null,
-			active: false,
-			legacy: true,
-			type: 'linkswap',
-			liquidId: `${currencies.ERC20.yax}/ETH`,
-			lpAddress: '0x21dee38170F1e1F26baFf2C30C0fc8F8362b6961',
-			lpUrl: '',
-			lpTokens: [
-				{
-					tokenId: 'yax',
-				},
-				{
-					tokenId: 'eth',
-				},
-			],
-			tokenAddress: currencies.ERC20.yax,
-			name: 'Linkswap YAX/ETH',
-			symbol: 'YAX/ETH LINKSWAP LP',
-			tokenSymbol: 'YAX_ETH_LINKSWAP_LP',
-			icon: '',
-		},
+		}
 	},
 	currencies,
 	external,

@@ -131,7 +131,7 @@ const mainnet: EthereumConfig = {
 	rewards: {
 		MetaVault: '0x226f9954A1221cDe805C76CfB312A5d761630E14',
 		Yaxis: '0x3b09B9ADFe11f92225b4C55De89fa81456595CD9',
-		'Uniswap YAXIS/ETH': '0xEDaFe410e2f07ab9D7F1B04316D29C2F49dCb104',
+		'Uniswap NUME/ETH': '0xEDaFe410e2f07ab9D7F1B04316D29C2F49dCb104', //TODO LP REWARDS CONTRACT
 	},
 	vaults: {
 		usd: {
@@ -216,36 +216,36 @@ const mainnet: EthereumConfig = {
 		},
 	},
 	pools: {
-		'Uniswap YAXIS/ETH': {
+		'Uniswap NUME/ETH': {
 			active: true,
 			legacy: false,
 			type: 'uniswap',
-			liquidId: `${currencies.ERC677.yaxis}/ETH`,
-			lpAddress: '0xF0E3FdF48661CD10d56692f60BD4eCcd01E9CF64',
-			lpUrl: `https://app.uniswap.org/#/add/v2/ETH/${currencies.ERC677.yaxis}`,
+			liquidId: `${currencies.ERC20.nume}/ETH`,
+			lpAddress: '0xF06550C34946D251C2EACE59fF4336168dB7EbF2',
+			lpUrl: 'https://app.uniswap.org/#/add/v2/ETH/0x34769D3e122C93547836AdDD3eb298035D68F1C3?chain=mainnet',
 			lpTokens: [
 				{
-					tokenId: 'yaxis',
+					tokenId: 'nume',
 				},
 				{
 					tokenId: 'eth',
 				},
 			],
 			tokenAddress: currencies.ERC677.yaxis,
-			name: 'Uniswap YAXIS/ETH',
-			symbol: 'YAXIS/ETH UNI-V2 LP',
-			tokenSymbol: 'YAXIS_ETH_UNISWAP_LP',
+			name: 'Uniswap NUME/ETH',
+			symbol: 'NUME/ETH UNI-V2 LP',
+			tokenSymbol: 'NUME_ETH_UNISWAP_LP',
 			icon: '',
-			rewards: 'Uniswap YAXIS/ETH',
+			rewards: 'Uniswap NUME/ETH',
 		},
-		'Uniswap YAX/ETH': {
-			legacy: true,
+		'LP Double Up Program (Invite Only)': {
 			pid: 6,
-			active: true,
+			active: false,
+			legacy: false,
 			type: 'uniswap',
 			liquidId: `${currencies.ERC20.yax}/ETH`,
-			lpAddress: '0x1107b6081231d7f256269ad014bf92e041cb08df',
-			lpUrl: `https://app.uniswap.org/#/add/v2/ETH/${currencies.ERC20.yax}`,
+			lpAddress: '0xA5c9Eb48392d253EC7337f72af3b4d1a03666695',
+			lpUrl: '',
 			lpTokens: [
 				{
 					tokenId: 'yax',
@@ -255,33 +255,11 @@ const mainnet: EthereumConfig = {
 				},
 			],
 			tokenAddress: currencies.ERC20.yax,
-			name: 'Uniswap YAX/ETH',
+			name: 'LP Double Up Program (Invite Only)',
 			symbol: 'YAX/ETH UNI-V2 LP',
 			tokenSymbol: 'YAX_ETH_UNISWAP_LP',
 			icon: '',
-		},
-		'Linkswap YAX/ETH': {
-			legacy: true,
-			pid: null,
-			active: true,
-			type: 'linkswap',
-			liquidId: `${currencies.ERC20.yax}/ETH`,
-			lpAddress: '0x21dee38170F1e1F26baFf2C30C0fc8F8362b6961',
-			lpUrl: `https://linkswap.app/#/add/${currencies.ERC20.yax}/ETH`,
-			lpTokens: [
-				{
-					tokenId: 'yax',
-				},
-				{
-					tokenId: 'eth',
-				},
-			],
-			tokenAddress: currencies.ERC20.yax,
-			name: 'Linkswap YAX/ETH',
-			symbol: 'YAX/ETH LINKSWAP LP',
-			tokenSymbol: 'YAX_ETH_LINKSWAP_LP',
-			icon: '',
-		},
+		}
 	},
 	currencies,
 	external,

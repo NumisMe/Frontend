@@ -45,7 +45,8 @@ export async function getYAXPriceData(
 	const start = moment().subtract(1, selectedDay.unit).format('X')
 	const end = moment().format('X')
 
-	const api = `https://api.coingecko.com/api/v3/coins/yaxis/market_chart/range?vs_currency=usd&from=${start}&to=${end}`
+	const api = `https://api.coingecko.com/api/v3/coins/numisme/market_chart/range?vs_currency=usd&from=${start}&to=${end}`
+	console.log(api);
 	try {
 		const data = await fetch(api)
 		const converted: PriceResponse = await data.json()

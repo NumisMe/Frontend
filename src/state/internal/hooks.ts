@@ -454,65 +454,45 @@ export function useNumeSupply() {
 		],
 	)
 
-	const ethereumBalances = useSingleContractMultipleData(
-		contracts?.currencies.ERC677.yaxis?.contract,
-		'balanceOf',
-		contracts?.currencies.ERC677.yaxis?.contract &&
-			'swap' in contracts?.internal
-			? [
-					[contracts?.internal.swap.address],
-					[contracts?.rewards['Uniswap YAXIS/ETH']?.address],
-			  ]
-			: [],
-	)
-
 	return useMemo(() => {
 		const { result: stakedSupply } = totalSupply
 
 		const [
 			devFund,
-			teamFund,
+			marketing,
+			op,
+			eco,
+			locked,
 			treasury,
-			metavaultRewards,
-			yaxisRewards,
-			gauges,
+			wrapper
 		] = balances.map(({ result, loading }) => {
 			if (loading) return new BigNumber(0)
 			if (!result) return new BigNumber(0)
 			return new BigNumber(result.toString())
 		})
 
-		const [unswapped, uniswapLPRewards] = ethereumBalances.map(
-			({ result, loading }) => {
-				if (loading) return new BigNumber(0)
-				if (!result) return new BigNumber(0)
-				return new BigNumber(result.toString())
-			},
-		)
-
-		const notCirculating = (unswapped || new BigNumber(0))
+		const notCirculating = (op || new BigNumber(0))
 			.plus(devFund || 0)
-			.plus(teamFund || 0)
+			.plus(marketing || 0)
 			.plus(treasury || 0)
-			.plus(metavaultRewards || 0)
-			.plus(uniswapLPRewards || 0)
-			.plus(yaxisRewards || 0)
-			.plus(gauges || 0)
+			.plus(eco || 0)
+			.plus(locked || 0)
+			.plus(wrapper || 0)
 
 		const total = new BigNumber(stakedSupply?.toString() || 0)
 
 		return {
 			total,
 			circulating: total.minus(notCirculating),
-			devFund: devFund || new BigNumber(0),
-			teamFund: teamFund || new BigNumber(0),
-			treasury: treasury || new BigNumber(0),
-			metavaultRewards: metavaultRewards || new BigNumber(0),
-			uniswapLPRewards: uniswapLPRewards || new BigNumber(0),
-			yaxisRewards: yaxisRewards || new BigNumber(0),
-			gauges: gauges || new BigNumber(0),
+			// devFund: devFund || new BigNumber(0),
+			// teamFund: teamFund || new BigNumber(0),
+			// treasury: treasury || new BigNumber(0),
+			// metavaultRewards: metavaultRewards || new BigNumber(0),
+			// uniswapLPRewards: uniswapLPRewards || new BigNumber(0),
+			// yaxisRewards: yaxisRewards || new BigNumber(0),
+			// gauges: gauges || new BigNumber(0),
 		}
-	}, [totalSupply, balances, ethereumBalances])
+	}, [totalSupply, balances])
 }
 
 // export function useYaxisSupply() {
@@ -757,19 +737,16 @@ const useAvalancheRewardAPR = (
 }
 
 export function useLiquidityPools(): Record<
-	TLiquidityPoolsE | TLiquidityPoolsA,
+	TLiquidityPoolsE,
 	ReturnType<typeof useLiquidityPool>
 > {
-	const linkswapYaxEth = useLiquidityPool('Linkswap YAX/ETH')
-	const uniswapYaxEth = useLiquidityPool('Uniswap YAX/ETH')
-	const uniswapYaxisEth = useLiquidityPool('Uniswap YAXIS/ETH')
-	const traderjoeJoeAvax = useLiquidityPool('TraderJoe YAXIS/WAVAX')
+	const LPDouble = useLiquidityPool('LP Double Up Program (Invite Only)')
+	const uniswapNumeEth = useLiquidityPool('Uniswap NUME/ETH')
+	//const traderjoeJoeAvax = useLiquidityPool('TraderJoe YAXIS/WAVAX')
 
 	return {
-		'Uniswap YAX/ETH': uniswapYaxEth,
-		'Uniswap YAXIS/ETH': uniswapYaxisEth,
-		'Linkswap YAX/ETH': linkswapYaxEth,
-		'TraderJoe YAXIS/WAVAX': traderjoeJoeAvax,
+		'LP Double Up Program (Invite Only)': LPDouble,
+		'Uniswap NUME/ETH': uniswapNumeEth,
 	}
 }
 

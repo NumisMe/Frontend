@@ -76,7 +76,7 @@ const ClaimAll: React.FC = () => {
 			secondary={
 				<Value
 					value={getBalanceNumber(legacyClaimable.plus(claimable))}
-					numberSuffix=" YAXIS"
+					numberSuffix=" NUME"
 					decimals={2}
 				/>
 			}

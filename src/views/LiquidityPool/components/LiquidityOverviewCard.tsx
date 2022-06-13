@@ -59,7 +59,7 @@ const LiquidityOverviewCard: React.FC<LiquidityOverviewCardProps> = ({
 	const { poolShare } = useWalletLP(pool.name)
 
 	return (
-		<Card title={translate('Overview')} icon="yaxis">
+		<Card title={translate('Overview')} icon="verticalbars">
 			{pool?.legacy ? (
 				<LegacyClaim pool={pool} />
 			) : (

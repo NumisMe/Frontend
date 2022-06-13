@@ -783,16 +783,13 @@ export function useWalletLPs(): Record<
 	TLiquidityPools,
 	ReturnType<typeof useWalletLP>
 > {
-	const linkswapYaxEth = useWalletLP('Linkswap YAX/ETH')
-	const uniswapYaxEth = useWalletLP('Uniswap YAX/ETH')
-	const uniswapYaxisEth = useWalletLP('Uniswap YAXIS/ETH')
-	const traderjoeYaxisWavax = useWalletLP('TraderJoe YAXIS/WAVAX')
+	const LPDouble = useWalletLP('LP Double Up Program (Invite Only)')
+	const uniswapNumeEth = useWalletLP('Uniswap NUME/ETH')
 
 	return {
-		'Uniswap YAX/ETH': uniswapYaxEth,
-		'Uniswap YAXIS/ETH': uniswapYaxisEth,
-		'Linkswap YAX/ETH': linkswapYaxEth,
-		'TraderJoe YAXIS/WAVAX': traderjoeYaxisWavax,
+		'LP Double Up Program (Invite Only)': LPDouble,
+		'Uniswap NUME/ETH': uniswapNumeEth,
+		'TraderJoe YAXIS/WAVAX': uniswapNumeEth,
 	}
 }
 
@@ -969,13 +966,10 @@ export function useLPsBalance(): LPsBalance {
 				return previous
 			},
 			{
-				'Uniswap YAX/ETH': {
+				'Uniswap NUME/ETH': {
 					usd: new BigNumber(0),
 				},
-				'Uniswap YAXIS/ETH': {
-					usd: new BigNumber(0),
-				},
-				'Linkswap YAX/ETH': {
+				'LP Double Up Program (Invite Only)': {
 					usd: new BigNumber(0),
 				},
 				'TraderJoe YAXIS/WAVAX': {

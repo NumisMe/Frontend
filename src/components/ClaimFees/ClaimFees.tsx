@@ -51,7 +51,7 @@ const ClaimFees: React.FC = () => {
 			secondary={
 				<Value
 					value={getBalanceNumber(rewardsClaimable, 0)}
-					numberSuffix=" YAXIS"
+					numberSuffix=" NUME"
 					decimals={2}
 				/>
 			}

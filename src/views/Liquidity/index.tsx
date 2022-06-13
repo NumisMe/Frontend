@@ -35,11 +35,6 @@ const Liquidity: React.FC = () => {
 			),
 		[contracts],
 	)
-	const legacyPools = useMemo(
-		() =>
-			Object.values(contracts?.pools || {}).filter((pool) => pool.legacy),
-		[contracts],
-	)
 
 	return (
 		<Page>
@@ -62,9 +57,10 @@ const Liquidity: React.FC = () => {
 					<Text style={{ fontSize: '16px' }}>
 						A liquidity pool is a crowdsourced pool of
 						cryptocurrencies locked in a smart contract that is used
-						to facilitate trades between the assets on a
-						decentralized exchange. Help fund the LP to recieve a
-						percentage of trading fees along with YAXIS rewards.
+						to facilitate trades between the assets on a decentralized
+						exchange. 
+						Help fund the LP to receive a percentage of trading fees along
+						with NUME rewards.
 					</Text>
 				</Card>
 
@@ -84,14 +80,17 @@ const Liquidity: React.FC = () => {
 						rowClassName="LP-Table-Row"
 						onRow={(record) => {
 							return {
-								onClick: () =>
-									navigate(`/liquidity/${record.lpAddress}`),
+								onClick: () => {
+									record.name == "LP Double Up Program (Invite Only)" ? 
+										window.open("http://twitter.com")
+									: navigate(`/liquidity/${record.lpAddress}`)
+								}
 							}
 						}}
 					/>
 				</Card>
 
-				<Collapse expandIconPosition="right">
+				{/* <Collapse expandIconPosition="right">
 					<StyledPanel
 						header={
 							<Row gutter={10}>
@@ -134,7 +133,7 @@ const Liquidity: React.FC = () => {
 							}}
 						/>
 					</StyledPanel>
-				</Collapse>
+				</Collapse> */}
 			</>
 		</Page>
 	)
@@ -156,7 +155,6 @@ const StyledTable = styled(Table)`
 	.LP-Table-Row {
 		&:hover {
 			cursor: pointer;
-			background: ${(props) => props.theme.secondary.backgroundHover};
 		}
 	}
 ` as typeof Table

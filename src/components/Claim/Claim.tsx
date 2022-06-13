@@ -64,7 +64,7 @@ const Claim: React.FC<Props> = ({ vault, rewardsContract, last }) => {
 					value={getBalanceNumber(
 						new BigNumber(claimable?.[0]?.toString() || 0),
 					)}
-					numberSuffix=" YAXIS"
+					numberSuffix=" NUME"
 					decimals={2}
 				/>
 			}

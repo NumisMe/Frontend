@@ -107,7 +107,7 @@ export const YAXIS: Currency = {
 export const NUME: Currency = {
 	name: 'NUME',
 	tokenId: 'nume',
-	icon: yax,
+	icon: usd,
 	decimals: 18,
 	priceMapKey: 'nume',
 }
@@ -450,6 +450,14 @@ export const TRICRYPTO: Currency = {
 
 // LP tokens
 
+export const NUME_ETH_UNISWAP_LP: Currency = {
+	name: 'NUME_ETH_UNISWAP_LP',
+	tokenId: 'NUME_ETH_UNISWAP_LP',
+	icon: uni,
+	childIcons: [NUME.icon],
+	decimals: 18,
+}
+
 export const LINKCRV: Currency = {
 	name: 'LINKCRV',
 	tokenId: 'linkcrv',
@@ -616,4 +624,5 @@ export const Currencies = {
 	LINKSWAP_LP,
 	YAX_ETH_LINKSWAP_LP,
 	TRADERJOE_LP,
+	NUME_ETH_UNISWAP_LP
 }

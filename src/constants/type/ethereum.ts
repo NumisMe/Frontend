@@ -5,20 +5,17 @@
 export const RewardsContracts = <const>[
 	'MetaVault',
 	'Yaxis',
-	'Uniswap YAXIS/ETH',
+	'Uniswap NUME/ETH',
 ]
 export type TRewardsContracts = typeof RewardsContracts[number]
 
 export const UniswapLiquidityPools = <const>[
-	'Uniswap YAXIS/ETH',
-	'Uniswap YAX/ETH',
+	'Uniswap NUME/ETH',
+	'LP Double Up Program (Invite Only)',
 ]
 export type TUniswapLiquidityPools = typeof UniswapLiquidityPools[number]
-export const LinkswapLiquidityPools = <const>['Linkswap YAX/ETH']
-export type TLinkswapLiquidityPools = typeof LinkswapLiquidityPools[number]
 export const LiquidityPools = <const>[
 	...UniswapLiquidityPools,
-	...LinkswapLiquidityPools,
 ]
 export type TLiquidityPools = typeof LiquidityPools[number]
 export type LiquidityPoolsTypes = 'linkswap' | 'uniswap'
