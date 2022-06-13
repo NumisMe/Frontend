@@ -40,6 +40,7 @@ export const CurrenciesERC20 = <const>[
 	'weth',
 	'wavax',
 	'joe',
+	'nume'
 ]
 export type TCurrenciesERC20 = typeof CurrenciesERC20[number]
 

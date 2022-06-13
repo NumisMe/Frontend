@@ -424,25 +424,31 @@ export function useVaults(): useVaultsReturn {
 	])
 }
 
-const DEV_FUND_ADDRESS = '0x5118Df9210e1b97a4de0df15FBbf438499d6b446'
-const TEAM_FUND_ADDRESS = '0xEcD3aD054199ced282F0608C4f0cea4eb0B139bb'
-const TREASURY_ADDRESS = '0xC1d40e197563dF727a4d3134E8BD1DeF4B498C6f'
+const DEV_FUND_ADDRESS = '0xeDE21d217E29b0f345AfC9EFcb6018287B7A46fB'
+const MARKETING_ADDRESS = '0x677Bb693cF2c8304902d7d0779041c2C89D4bD48'
+const OP_ADDRESS = '0x20678A8aAA215aA66A49a3400CaEfC1d7aa1Ad7c'
+const ECO_ADDRESS = '0x6b8fABf3324c3a14F60Ae6EA62aBa8665D498c4F'
+const TREASURY_ADDRESS = '0xe2A7BE7862C657b87587E9e59FCA270b3DDb0A2D'
+const LOCKED_ADDRESS = '0xdba68f07d1b7ca219f78ae8582c213d975c25caf'
 
-export function useYaxisSupply() {
+export function useNumeSupply() {
 	// TODO: make this work multi-chain
 	const { contracts } = useContracts()
 
 	const totalSupply = useSingleCallResult(
-		contracts?.currencies.ERC677?.yaxis?.contract,
+		contracts?.currencies.ERC20?.nume?.contract,
 		'totalSupply',
 	)
 
 	const balances = useSingleContractMultipleData(
-		contracts?.currencies.ERC677.yaxis?.contract,
+		contracts?.currencies.ERC20.nume?.contract,
 		'balanceOf',
 		[
 			[DEV_FUND_ADDRESS],
-			[TEAM_FUND_ADDRESS],
+			[MARKETING_ADDRESS],
+			[OP_ADDRESS],
+			[ECO_ADDRESS],
+			[LOCKED_ADDRESS],
 			[TREASURY_ADDRESS],
 			[contracts?.internal.minterWrapper.address],
 		],
@@ -508,6 +514,87 @@ export function useYaxisSupply() {
 		}
 	}, [totalSupply, balances, ethereumBalances])
 }
+
+// export function useYaxisSupply() {
+// 	// TODO: make this work multi-chain
+// 	const { contracts } = useContracts()
+
+// 	const totalSupply = useSingleCallResult(
+// 		contracts?.currencies.ERC20?.nume?.contract,
+// 		'totalSupply',
+// 	)
+
+// 	const balances = useSingleContractMultipleData(
+// 		contracts?.currencies.ERC677.yaxis?.contract,
+// 		'balanceOf',
+// 		[
+// 			[DEV_FUND_ADDRESS],
+// 			[TEAM_FUND_ADDRESS],
+// 			[TREASURY_ADDRESS],
+// 			[contracts?.internal.minterWrapper.address],
+// 		],
+// 	)
+
+// 	const ethereumBalances = useSingleContractMultipleData(
+// 		contracts?.currencies.ERC677.yaxis?.contract,
+// 		'balanceOf',
+// 		contracts?.currencies.ERC677.yaxis?.contract &&
+// 			'swap' in contracts?.internal
+// 			? [
+// 					[contracts?.internal.swap.address],
+// 					[contracts?.rewards['Uniswap YAXIS/ETH']?.address],
+// 			  ]
+// 			: [],
+// 	)
+
+// 	return useMemo(() => {
+// 		const { result: stakedSupply } = totalSupply
+
+// 		const [
+// 			devFund,
+// 			teamFund,
+// 			treasury,
+// 			metavaultRewards,
+// 			yaxisRewards,
+// 			gauges,
+// 		] = balances.map(({ result, loading }) => {
+// 			if (loading) return new BigNumber(0)
+// 			if (!result) return new BigNumber(0)
+// 			return new BigNumber(result.toString())
+// 		})
+
+// 		const [unswapped, uniswapLPRewards] = ethereumBalances.map(
+// 			({ result, loading }) => {
+// 				if (loading) return new BigNumber(0)
+// 				if (!result) return new BigNumber(0)
+// 				return new BigNumber(result.toString())
+// 			},
+// 		)
+
+// 		const notCirculating = (unswapped || new BigNumber(0))
+// 			.plus(devFund || 0)
+// 			.plus(teamFund || 0)
+// 			.plus(treasury || 0)
+// 			.plus(metavaultRewards || 0)
+// 			.plus(uniswapLPRewards || 0)
+// 			.plus(yaxisRewards || 0)
+// 			.plus(gauges || 0)
+
+// 		const total = new BigNumber(stakedSupply?.toString() || 0)
+
+// 		return {
+// 			total,
+// 			circulating: total.minus(notCirculating),
+// 			devFund: devFund || new BigNumber(0),
+// 			teamFund: teamFund || new BigNumber(0),
+// 			treasury: treasury || new BigNumber(0),
+// 			metavaultRewards: metavaultRewards || new BigNumber(0),
+// 			uniswapLPRewards: uniswapLPRewards || new BigNumber(0),
+// 			yaxisRewards: yaxisRewards || new BigNumber(0),
+// 			gauges: gauges || new BigNumber(0),
+// 		}
+// 	}, [totalSupply, balances, ethereumBalances])
+// }
 
 const useRewardAPR = (rewardsContract: TRewardsContracts, active: boolean) => {
 	const { contracts } = useContracts()

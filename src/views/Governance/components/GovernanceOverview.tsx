@@ -4,7 +4,7 @@ import Value from '../../../components/Value'
 import CardRow from '../../../components/CardRow'
 import useTranslation from '../../../hooks/useTranslation'
 import { ExpandableSidePanel } from '../../../components/ExpandableSidePanel'
-import { useYaxisSupply } from '../../../state/internal/hooks'
+import { useNumeSupply } from '../../../state/internal/hooks'
 import { useVotingPower } from '../../../state/wallet/hooks'
 
 const { SecondaryText } = Typography
@@ -12,7 +12,7 @@ const { SecondaryText } = Typography
 const GovernanceOverview: React.FC = () => {
 	const translate = useTranslation()
 
-	const { circulating } = useYaxisSupply()
+	const { circulating } = useNumeSupply()
 
 	const { supply } = useVotingPower()
 

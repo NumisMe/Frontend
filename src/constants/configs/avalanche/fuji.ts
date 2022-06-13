@@ -23,6 +23,7 @@ const currencies: AvalancheCurrenciesConfig = {
 		// frax: '',
 		wavax: '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7',
 		joe: '0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd',
+		nume: '',
 	},
 	ERC677: {
 		yaxis: '0x55853edc67aa68ec2e3903ac00f2bc5bf2ca8db0',

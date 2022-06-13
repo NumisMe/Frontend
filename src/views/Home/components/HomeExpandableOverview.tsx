@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Row, Col } from 'antd'
 import { useTVL } from '../../../state/internal/hooks'
-import { useYaxisSupply } from '../../../state/internal/hooks'
+import { useNumeSupply } from '../../../state/internal/hooks'
 import { usePrices } from '../../../state/prices/hooks'
 import Value from '../../../components/Value'
 // import { getBalanceNumber } from '../../../utils/formatBalance'
@@ -56,12 +56,12 @@ export default function HomeExpandableOverview() {
 		governanceTvl,
 		metavaultTvl,
 	} = useTVL()
-	const { circulating, total } = useYaxisSupply()
+	const { circulating, total } = useNumeSupply()
 
 	const yaxisUrl = useYaxisUrl()
 
 	return (
-		<ExpandableSidePanel header={translate('yAxis Overview')} icon="lineup">
+		<ExpandableSidePanel header={'NumisMe Overview'} icon="lineup">
 			<CardRow
 				main={
 					<Tooltip
@@ -111,10 +111,10 @@ export default function HomeExpandableOverview() {
 			/>
 			<CardRow
 				main={
-					<SecondaryText>{translate('Price of YAXIS')}</SecondaryText>
+					<SecondaryText>{'Price of NUME'}</SecondaryText>
 				}
 				secondary={
-					<Value value={prices.yaxis} numberPrefix="$" decimals={2} />
+					<Value value={prices.nume} numberPrefix="$" decimals={3} />
 				}
 				rightContent={
 					<Col lg={18} md={12} sm={12} xs={12}>
@@ -133,7 +133,7 @@ export default function HomeExpandableOverview() {
 
 			<CardRow
 				main={
-					<SecondaryText>{translate('YAXIS Supply')}</SecondaryText>
+					<SecondaryText>{'NUME Supply'}</SecondaryText>
 				}
 				secondary={
 					<Row gutter={3}>

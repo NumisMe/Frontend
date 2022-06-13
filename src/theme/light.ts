@@ -16,10 +16,10 @@ export const light: ThemeColors = {
 		footer: colors.aliceBlue,
 	},
 	secondary: {
-		main: colors.lightBrandBlue,
+		main: colors.black,
 		border: colors.lightGray,
 		background: colors.white,
-		backgroundHover: 'rgb(236,248,254)',
+		backgroundHover: 'rgb(0,0,0)',
 		font: 'rgb(138 138 138)',
 		active: 'rgb(59	200	254)',
 	},

@@ -117,11 +117,11 @@ const Nav: React.FC = () => {
 				))}
 			</StyledSubMenu>
 
-			<MenuItem key={'/governance'}>
+			{/* <MenuItem key={'/governance'}>
 				<StyledLink to="/governance">
 					{translate('Governance')}
 				</StyledLink>
-			</MenuItem>
+			</MenuItem> */}
 
 			<MenuItem key={'/swap'}>
 				<StyledLink to="/swap">

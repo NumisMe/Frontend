@@ -12,10 +12,10 @@ export const blue = {
 	500: 'rgb(67,210,255)',
 }
 
-export const lightBrandBlue = '#52b2dc'
-export const brandBlue = '#016EAC'
+export const lightBrandBlue = '#000000'
+export const brandBlue = '#000000'
 export const darkBrandBlue = '#114055'
-export const hoverBlue = 'rgb(67, 210, 255)'
+export const hoverBlue = 'rgb(0, 0, 0)'
 
 export const grey = {
 	100: '#fafafa',

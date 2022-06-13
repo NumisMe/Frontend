@@ -21,6 +21,7 @@ const currencies: EthereumCurrenciesConfig = {
 		mvlt: '0xBFbEC72F2450eF9Ab742e4A27441Fa06Ca79eA6a',
 		spell: '0x090185f2135308bad17527004364ebcc2d37e5f6',
 		frax: '0x853d955acef822db058eb8505911ed77f175b99e',
+		nume: '0x34769d3e122c93547836addd3eb298035d68f1c3',
 	},
 	ERC677: {
 		yaxis: '0x0adA190c81b814548ddC2F6AdC4a689ce7C1FE73',

@@ -104,6 +104,14 @@ export const YAXIS: Currency = {
 	priceMapKey: 'yaxis',
 }
 
+export const NUME: Currency = {
+	name: 'NUME',
+	tokenId: 'nume',
+	icon: yax,
+	decimals: 18,
+	priceMapKey: 'nume',
+}
+
 export const MVLT: Currency = {
 	name: 'MVLT',
 	tokenId: 'mvlt',
@@ -552,6 +560,7 @@ export const Currencies = {
 	WAVAX,
 	YAX,
 	YAXIS,
+	NUME,
 	'YAXIS-GAUGE': YAXISgauge,
 	MVLT,
 	'CV:USD': CVUSD,
