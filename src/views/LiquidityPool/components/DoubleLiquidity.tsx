@@ -39,6 +39,7 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 		new BigNumber(0),
 	)
 	const [userLP, setUserLP] = useState<BigNumber>(new BigNumber(0))
+	const [claimable, setClaimable] = useState<BigNumber>(new BigNumber(0))
 
 	useEffect(() => {
 		if (!contracts || !account) {
@@ -59,6 +60,14 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 				new BigNumber(
 					(
 						await contracts.internal['LPMatch'].userLP(account)
+					).toString(),
+				),
+			)
+
+			setClaimable(
+				new BigNumber(
+					(
+						await contracts.internal['LPMatch'].claimable(account)
 					).toString(),
 				),
 			)
@@ -120,6 +129,11 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 			description: `withdrawLP`,
 		},
 	)
+	const { call: handleClaim, loading: loadingClaim } = useContractWrite({
+		contractName: 'internal.LPMatch',
+		method: 'claim',
+		description: `claim`,
+	})
 	return (
 		<Card
 			className="double-liquidity-card"
@@ -232,6 +246,23 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 							loading={loadingWithdraw}
 						>
 							Withdraw LP
+						</Button>
+					</Col>
+				</Row>
+
+				<Row gutter={24}>
+					<TableHeader value={'Pending Rewards'} span={24} />
+					<Col span={24} className={'balance'}>
+						<Value
+							value={getBalanceNumber(claimable)}
+							decimals={2}
+							numberSuffix={' NUME'}
+						/>
+						<Button
+							onClick={async () => await handleClaim()}
+							loading={loadingClaim}
+						>
+							Claim Reward
 						</Button>
 					</Col>
 				</Row>
