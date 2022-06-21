@@ -96,7 +96,7 @@ const App: React.FC = () => {
 
 				<Route path="*" element={<Navigate to="/" replace={true} />} />
 			</Routes>
-			<Modals />
+			{/* <Modals /> */}
 		</>
 	)
 }

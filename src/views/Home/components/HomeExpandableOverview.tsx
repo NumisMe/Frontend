@@ -94,7 +94,7 @@ export default function HomeExpandableOverview() {
 								/> */}
 
 								<TooltipRow
-									main={'Total YAXIS'}
+									main={'Total NUME'}
 									value={stakingTvl.toNumber()}
 								/>
 							</>

@@ -13,6 +13,7 @@ import usdt from '../assets/img/currencies/usdt.svg'
 import link from '../assets/img/currencies/link.svg'
 import wbtc from '../assets/img/currencies/wbtc.svg'
 import usd from '../assets/img/currencies/usd.svg'
+import nume from '../assets/img/currencies/nume.png'
 import avax from '../assets/img/currencies/avax.svg'
 import joe from '../assets/img/currencies/joe.svg'
 import aave from '../assets/img/currencies/aave.svg'
@@ -107,7 +108,7 @@ export const YAXIS: Currency = {
 export const NUME: Currency = {
 	name: 'NUME',
 	tokenId: 'nume',
-	icon: usd,
+	icon: nume,
 	decimals: 18,
 	priceMapKey: 'nume',
 }
