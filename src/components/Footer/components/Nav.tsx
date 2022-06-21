@@ -15,19 +15,19 @@ const Nav: React.FC = () => {
 		<StyledRow align="middle">
 			<StyledCol xs={24} sm={24} md={9}>
 				<Row justify="center">
-					<StyledLink
+					{/* <StyledLink
 						target="_blank"
 						href="https://immunefi.com/bounty/yaxis/"
 						rel="noopener noreferrer"
 					>
 						{translate('Security')}
-					</StyledLink>
+					</StyledLink> */}
 				</Row>
 			</StyledCol>
 
 			<StyledCol2 xs={24} sm={24} md={7}>
 				<Row justify="center">
-					{/* <StyledLinkButton>
+					<StyledLinkButton>
 						<Row align="middle" justify="space-between">
 							<Col span={24}>
 								<span
@@ -42,7 +42,7 @@ const Nav: React.FC = () => {
 							<Col span={10}>
 								<HaechiTitle
 									target="_blank"
-									href="https://github.com/yaxis-project/metavault/blob/main/audits/v3/Haechi-V3.pdf"
+									href="https://github.com/NumisMe/Frontend/blob/main/Haechi-V3.pdf"
 									rel="noopener noreferrer"
 								>
 									HAECHI
@@ -59,7 +59,7 @@ const Nav: React.FC = () => {
 								</C4Title>
 							</Col>
 						</Row>
-					</StyledLinkButton> */}
+					</StyledLinkButton>
 				</Row>
 			</StyledCol2>
 
