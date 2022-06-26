@@ -18,7 +18,7 @@ const GovernanceOverview: React.FC = () => {
 
 	return (
 		<ExpandableSidePanel
-			header={translate('Governance Overview')}
+			header={'Staking Overview'}
 			icon="book"
 		>
 			<CardRow
