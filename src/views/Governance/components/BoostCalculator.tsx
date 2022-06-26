@@ -204,7 +204,7 @@ const BoostCalculator: React.FC = () => {
 					<Text>Use the current total</Text>
 				</Checkbox>
 				<Row style={{ marginTop: '15px' }}>
-					<Title level={5}>YAXIS locked:</Title>
+					<Title level={5}>NUME locked:</Title>
 				</Row>
 				<Input
 					value={yaxisLocked}
