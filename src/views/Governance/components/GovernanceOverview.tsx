@@ -22,7 +22,7 @@ const GovernanceOverview: React.FC = () => {
 			icon="book"
 		>
 			<CardRow
-				main={<SecondaryText>YAXIS locked in Governance</SecondaryText>}
+				main={<SecondaryText>NUME locked in Governance</SecondaryText>}
 				secondary={
 					<Value
 						numberSuffix="%"

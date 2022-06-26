@@ -76,10 +76,10 @@ const CreateLock: React.FC = () => {
 							{translate('Wallet Balance')}
 							{': '}
 							<span style={{ fontWeight: 600 }}>
-								{balances?.yaxis?.amount
-									? balances?.yaxis?.amount.toNumber()
+								{balances?.nume?.amount
+									? balances?.nume?.amount.toNumber()
 									: '-'}{' '}
-								YAXIS
+								NUME
 							</span>
 						</StyledSmallText>
 					</Row>
@@ -93,13 +93,13 @@ const CreateLock: React.FC = () => {
 							min={'0'}
 							placeholder="0"
 							disabled={
-								balances?.yaxis?.amount
-									? balances?.yaxis?.amount.isZero()
+								balances?.nume?.amount
+									? balances?.nume?.amount.isZero()
 									: true
 							}
-							suffix={'YAXIS'}
+							suffix={'NUME'}
 							onClickMax={() =>
-								setAmount(balances?.yaxis?.amount.toString())
+								setAmount(balances?.nume?.amount.toString())
 							}
 						/>
 					</Row>
@@ -154,7 +154,7 @@ const CreateLock: React.FC = () => {
 				style={{ width: '100%', marginTop: '14px' }}
 				disabled={
 					loadingBalances ||
-					balances?.yaxis?.amount?.isZero() ||
+					balances?.nume?.amount?.isZero() ||
 					new BigNumber(amount).isZero() ||
 					new BigNumber(amount).isNaN()
 				}
@@ -250,7 +250,7 @@ const ExtendLock: React.FC<ExtendLockProps> = ({ data: { end, locked } }) => {
 					<Row style={{ marginBottom: '10px' }}>
 						<StyledText>
 							<span style={{ fontWeight: 600 }}>
-								{locked.toString()} YAXIS
+								{locked.toString()} NUME
 							</span>{' '}
 							locked.
 						</StyledText>
@@ -306,10 +306,10 @@ const ExtendLock: React.FC<ExtendLockProps> = ({ data: { end, locked } }) => {
 								{translate('Wallet Balance')}
 								{': '}
 								<span style={{ fontWeight: 600 }}>
-									{balances?.yaxis?.amount
-										? balances?.yaxis?.amount.toNumber()
+									{balances?.nume?.amount
+										? balances?.nume?.amount.toNumber()
 										: '-'}{' '}
-									YAXIS
+									NUME
 								</span>
 							</StyledSmallText>
 						</Row>
@@ -323,14 +323,14 @@ const ExtendLock: React.FC<ExtendLockProps> = ({ data: { end, locked } }) => {
 								min={'0'}
 								placeholder="0"
 								disabled={
-									balances?.yaxis?.amount
-										? balances?.yaxis?.amount.isZero()
+									balances?.nume?.amount
+										? balances?.nume?.amount.isZero()
 										: true
 								}
-								suffix={'YAXIS'}
+								suffix={'NUME'}
 								onClickMax={() =>
 									setAmount(
-										balances?.yaxis?.amount.toString(),
+										balances?.nume?.amount.toString(),
 									)
 								}
 							/>
@@ -423,11 +423,11 @@ const Lock: React.FC = () => {
 		<>
 			<div style={{ margin: '20px' }}>
 				<Row>
-					<StyledText>Lock up your YAXIS token to:</StyledText>
+					<StyledText>Lock up your NUME token to:</StyledText>
 				</Row>
 				<Row>
 					<StyledSecondaryText>
-						Boost your Vault YAXIS rewards by up to 2.5x.
+						Boost your Vault NUME rewards by up to 2.5x.
 					</StyledSecondaryText>
 				</Row>
 				<Row>
@@ -441,7 +441,7 @@ const Lock: React.FC = () => {
 			<Divider style={{ margin: 0, padding: 0 }} />
 
 			<ApprovalCover
-				contractName={`currencies.ERC677.yaxis.contract`}
+				contractName={`currencies.ERC20.nume.contract`}
 				approvee={contracts?.internal.votingEscrow.address}
 				hidden={false}
 			>

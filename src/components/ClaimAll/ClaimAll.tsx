@@ -25,7 +25,7 @@ const ClaimAll: React.FC = () => {
 		useContractWrite({
 			contractName: `rewards.MetaVault`,
 			method: 'getReward',
-			description: `claim YAXIS MetaVault staking rewards`,
+			description: `claim NUME MetaVault staking rewards`,
 		})
 
 	const { loading: loadingClaimableMetaVault, result: claimableMetaVault } =
@@ -35,7 +35,7 @@ const ClaimAll: React.FC = () => {
 		useContractWrite({
 			contractName: `rewards.Yaxis`,
 			method: 'getReward',
-			description: `claim YAXIS staking rewards`,
+			description: `claim NUME staking rewards`,
 		})
 
 	const {
@@ -58,7 +58,7 @@ const ClaimAll: React.FC = () => {
 		useContractWrite({
 			contractName: `internal.minter`,
 			method: 'mint_many',
-			description: translate(`claim YAXIS`),
+			description: 'claim NUME',
 		})
 
 	const claimable = useMemo(
