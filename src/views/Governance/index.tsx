@@ -82,12 +82,12 @@ const Governance: React.FC = () => {
 							>
 								<Onchain />
 							</TabPane>
-							<TabPane
+							{/* <TabPane
 								tab={translate('Snapshot')}
 								key="#offchain"
 							>
 								<Offchain />
-							</TabPane>
+							</TabPane> */}
 						</Tabs>
 					</Card>
 				</Col>

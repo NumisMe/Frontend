@@ -52,7 +52,7 @@ const GovernanceAccountOverview: React.FC = () => {
 	return (
 		<AccountOverviewCard
 			loading={false}
-			mainTitle={translate('Governance Account')}
+			mainTitle={'Staking'}
 			secondaryText={''}
 			value={
 				(votingPower.totalSupply.isZero()

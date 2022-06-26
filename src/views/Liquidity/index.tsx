@@ -82,7 +82,7 @@ const Liquidity: React.FC = () => {
 							return {
 								onClick: () => {
 									record.name == "LP Double Up Program (Invite Only)" ? 
-										window.open("http://twitter.com")
+										window.open("https://docs.google.com/forms/d/e/1FAIpQLScRuM7SdkREFLa7CMKVPW4yWOx9xLxSIKfpIFNX0NLuKXK7rw/viewform")
 									: navigate(`/liquidity/${record.lpAddress}`)
 								}
 							}

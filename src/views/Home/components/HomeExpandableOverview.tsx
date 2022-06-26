@@ -78,11 +78,11 @@ export default function HomeExpandableOverview() {
 									value={liquidityTvl.toNumber()}
 								/>
 								<TooltipRow
-									main={'Total Governance locked'}
+									main={'Staking'}
 									value={governanceTvl.toNumber()}
 								/>
 
-								<Divider style={{ margin: '5px 0' }} />
+								{/* <Divider style={{ margin: '5px 0' }} /> */}
 
 								{/* <TooltipRow
 									main={'Total MetaVault value (LEGACY)'}
@@ -93,10 +93,10 @@ export default function HomeExpandableOverview() {
 									value={stakingTvl.toNumber()}
 								/> */}
 
-								<TooltipRow
+								{/* <TooltipRow
 									main={'Total NUME'}
 									value={stakingTvl.toNumber()}
-								/>
+								/> */}
 							</>
 						}
 					>
