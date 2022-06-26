@@ -208,7 +208,7 @@ const BoostCalculator: React.FC = () => {
 				</Row>
 				<Input
 					value={yaxisLocked}
-					suffix={'YAXIS'}
+					suffix={'NUME'}
 					onChange={(e) => {
 						!isNaN(Number(e.target.value)) &&
 							setYaxisLocked(e.target.value)
