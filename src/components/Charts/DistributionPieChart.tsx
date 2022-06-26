@@ -153,7 +153,7 @@ const DistributionPieChart: React.FC<Props> = ({ type }) => {
 										.multipliedBy(60 * 60 * 24)
 										.multipliedBy(context.formattedValue)
 										.toFixed(3) +
-									' YAXIS / day'
+									' NUME / day'
 								)
 							},
 						},
