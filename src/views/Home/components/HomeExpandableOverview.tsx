@@ -54,7 +54,6 @@ export default function HomeExpandableOverview() {
 		vaultsTvl,
 		liquidityTvl,
 		governanceTvl,
-		metavaultTvl,
 	} = useTVL()
 	const { circulating, total } = useNumeSupply()
 

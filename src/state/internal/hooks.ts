@@ -787,24 +787,16 @@ export function useTVL() {
 			new BigNumber(0),
 		)
 
-		const metavaultTvl = new BigNumber(
-			metavaultTotalSupply?.result?.toString() || 0,
-		)
-			.dividedBy(10 ** 18)
-			.multipliedBy(prices['3crv'])
-
 		return {
 			vaultTvl,
 			vaultsTvl,
 			stakingTvl,
 			liquidityTvl,
 			governanceTvl,
-			metavaultTvl,
 			tvl: stakingTvl
 				.plus(liquidityTvl)
 				.plus(vaultsTvl)
 				.plus(governanceTvl)
-				.plus(metavaultTvl),
 		}
 	}, [
 		contracts,
