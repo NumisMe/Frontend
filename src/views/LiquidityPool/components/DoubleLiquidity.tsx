@@ -1,8 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
+import axios from 'axios'
 import * as currencies from '../../../constants/currencies'
 import useContractWrite from '../../../hooks/useContractWrite'
-import { useWalletLP, useNativeBalances } from '../../../state/wallet/hooks'
-import { useLPMatch } from '../../../state/internal/hooks'
 import Value from '../../../components/Value'
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
@@ -11,7 +10,6 @@ import Typography from '../../../components/Typography'
 import { Row, Col, Form, Spin } from 'antd'
 import BigNumber from 'bignumber.js'
 import { getBalanceNumber } from '../../../utils/formatBalance'
-import { ethers } from 'ethers'
 import useTranslation from '../../../hooks/useTranslation'
 import { LiquidityPool } from '../../../constants/type'
 import useWeb3Provider from '../../../hooks/useWeb3Provider'
@@ -116,12 +114,27 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 	const onMaxWithdraw = () =>
 		setWithdraw(userLP?.dividedBy(10 ** 18).toString() || '0')
 
-	const { call: handleAddLiquidity, loading: loadingAddLiquidity } =
+	const { call: addLiquidity, loading: loadingAddLiquidity } =
 		useContractWrite({
 			contractName: 'internal.LPMatch',
 			method: 'addLiquidityETH',
 			description: `addLiquidityETH`,
 		})
+
+	const handleAddLiquidity = async () => {
+		const { data } = await axios.get(
+			'http://40.78.144.189:8000/currentPrice',
+		)
+		console.log(data)
+		await addLiquidity({
+			amount: new BigNumber(depositAmount)
+				.multipliedBy(10 ** currency.decimals)
+				.toString(),
+			args: [data.priceAverage, data.blockTimestampLast, data.sig],
+			cb: () => setDeposit('0'),
+		})
+	}
+
 	const { call: handleWithdraw, loading: loadingWithdraw } = useContractWrite(
 		{
 			contractName: 'internal.LPMatch',
@@ -205,14 +218,7 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 						</Form.Item>
 						<Button
 							disabled={depositDisabled}
-							onClick={async () =>
-								await handleAddLiquidity({
-									amount: new BigNumber(depositAmount)
-										.multipliedBy(10 ** currency.decimals)
-										.toString(),
-									cb: () => setDeposit('0'),
-								})
-							}
+							onClick={handleAddLiquidity}
 							loading={loadingAddLiquidity}
 						>
 							Add Liquidity

@@ -20,6 +20,8 @@ const StyledCol = styled(Col)`
 const { useBreakpoint } = Grid
 
 const Home = () => {
+  const provider = useWeb3Provider()
+  console.log(provider)
   const { account } = useWeb3Provider()
   let tokenSwap;
   const [allocation, setAllocation] = useState(0);
