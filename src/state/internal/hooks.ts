@@ -394,7 +394,7 @@ const OP_ADDRESS = '0x20678A8aAA215aA66A49a3400CaEfC1d7aa1Ad7c'
 const ECO_ADDRESS = '0x6b8fABf3324c3a14F60Ae6EA62aBa8665D498c4F'
 const TREASURY_ADDRESS = '0xe2A7BE7862C657b87587E9e59FCA270b3DDb0A2D'
 const LOCKED_ADDRESS = '0xdba68f07d1b7ca219f78ae8582c213d975c25caf'
-const SEE_INVESTOR_ALLOC = '0x57a23938B1c5DE38956e8CEE10690F7f510aD1B8'
+const SEED_INVESTOR_ALLOC = '0x57a23938B1c5DE38956e8CEE10690F7f510aD1B8'
 
 export function useNumeSupply() {
 	// TODO: make this work multi-chain
@@ -416,7 +416,7 @@ export function useNumeSupply() {
 			[LOCKED_ADDRESS],
 			[TREASURY_ADDRESS],
 			[contracts?.internal.minterWrapper.address],
-			[SEE_INVESTOR_ALLOC]
+			[SEED_INVESTOR_ALLOC]
 		],
 	)
 
