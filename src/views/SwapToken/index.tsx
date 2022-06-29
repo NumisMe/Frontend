@@ -31,7 +31,7 @@ const Home = () => {
     if(!tokenSwap) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        tokenSwap = new ethers.Contract("0x7bD1b0D6aF500D1AF012bEAAEcCe82474867F001", abi, signer);
+        tokenSwap = new ethers.Contract("0x1597D5077b06Ca557f378344E2D3f70c9BC64dA7", abi, signer);
     }
     if (!tokenSwap || !account) {
       return;

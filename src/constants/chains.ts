@@ -134,7 +134,7 @@ export const CHAIN_INFO: ChainInfoMap = {
 			rpcUrl: NETWORK_URLS[ChainId.ETHEREUM_MAINNET],
 		},
 		yaxisUrl:
-			'https://app.uniswap.org/#/swap?outputCurrency=0x0adA190c81b814548ddC2F6AdC4a689ce7C1FE73',
+			'https://app.uniswap.org/#/swap?outputCurrency=0x34769D3e122C93547836AdDD3eb298035D68F1C3',
 	},
 	[ChainId.ETHEREUM_KOVAN]: {
 		chainId: ChainId.ETHEREUM_KOVAN,
