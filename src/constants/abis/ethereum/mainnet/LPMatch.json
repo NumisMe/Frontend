@@ -166,6 +166,21 @@
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "blockTimestampLast",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "sig",
+        "type": "bytes"
       }
     ],
     "name": "addLiquidity",
@@ -174,7 +189,23 @@
     "type": "function"
   },
   {
-    "inputs": [],
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "blockTimestampLast",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "sig",
+        "type": "bytes"
+      }
+    ],
     "name": "addLiquidityETH",
     "outputs": [],
     "stateMutability": "payable",
@@ -196,19 +227,6 @@
     "name": "adminWithdraw",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "blockTimestampLast",
-    "outputs": [
-      {
-        "internalType": "uint32",
-        "name": "",
-        "type": "uint32"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -369,25 +387,12 @@
   },
   {
     "inputs": [],
-    "name": "priceAverage",
+    "name": "priceServer",
     "outputs": [
       {
-        "internalType": "uint224",
-        "name": "_x",
-        "type": "uint224"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "priceCumulativeLast",
-    "outputs": [
-      {
-        "internalType": "uint256",
+        "internalType": "address",
         "name": "",
-        "type": "uint256"
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -404,13 +409,6 @@
       }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "refreshPrice",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -484,6 +482,19 @@
       }
     ],
     "name": "setEnableWhitelist",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_priceServer",
+        "type": "address"
+      }
+    ],
+    "name": "setPriceServer",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
