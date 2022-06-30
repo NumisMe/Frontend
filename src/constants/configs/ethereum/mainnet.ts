@@ -129,7 +129,7 @@ const mainnet: EthereumConfig = {
 			vault: '0x9353d11eF99b8703D58FeAf69591DA62d6d6324e',
 			vaultToken: 'CV:USD',
 			vaultTokenContract: '0x024A3cE04706fe3dEC5EFAE904b4980bC1cD508a',
-			gauge: '0x37f9fccC5bc4b2d27a41a599237D9Dd6aC4D2Cd0',
+			gauge: '0xb9E28267eB119D07fc2c3bFC63D4b53Ff6C2C778',
 		},
 		eth: {
 			url: 'https://curve.fi/factory/38/deposit',
@@ -139,7 +139,7 @@ const mainnet: EthereumConfig = {
 			vault: '0xf31c6eE97070dcc73781c7C9d45EC9b5E86D2912',
 			vaultToken: 'CV:ETH',
 			vaultTokenContract: '0x1fa16627E468501fBa70e39a056d83A59539CE97',
-			gauge: '0xcEA4FD89AFd94FCf53401c6F70bEDB91B831dFE8',
+			gauge: '0xCfF87237de72fb25342210c02B25983713B613Fe',
 		},
 		cvx: {
 			url: 'https://curve.fi/cvxeth/deposit',
@@ -149,7 +149,7 @@ const mainnet: EthereumConfig = {
 			vault: '0x1014A2e3de1C4d6C5998D7e5a264F22a35d2cACc',
 			vaultToken: 'CV:CVX',
 			vaultTokenContract: '0x6eC48d8f290136CEA599f0707eB7323DF6ED6d4c',
-			gauge: '0x2571671189B08385752B9dB438f463CBf0550Af8',
+			gauge: '0x7789f7f28152Ec48a4d35141decCE08CE83D69E8',
 		},
 		tricrypto: {
 			url: 'https://curve.fi/tricrypto2/deposit',
@@ -159,7 +159,7 @@ const mainnet: EthereumConfig = {
 			vault: '0x1d9DC26A9067DA6C8e6038eBF176b7eB3E394149',
 			vaultToken: 'CV:TRICRYPTO',
 			vaultTokenContract: '0x3C2C88B0532f3C1f8d1F5dC348EC663ED0713448',
-			gauge: '0xb48DcEF0a7FBbaFde272cEBe9B4Fbe6b51afA915',
+			gauge: '0x2941F68fe10c16C8d710F4C51De91a82d7e89BE2',
 		},
 		frax: {
 			url: 'https://curve.fi/frax/deposit',
@@ -169,7 +169,7 @@ const mainnet: EthereumConfig = {
 			vault: '0x428F5B8b8fE7b9247c09aDE2cbd7573A3BfF649D',
 			vaultToken: 'CV:FRAX',
 			vaultTokenContract: '0xE3218f652205554a1c3b1d7595bce4c70a3B634C',
-			gauge: '0x73520107CAe43d6345B1dFc2099aDc3301B92AE0',
+			gauge: '0xce399Bf99df1B2dE66DeE8a100280Bb49D2Ee0af',
 		},
 	},
 	pools: {
