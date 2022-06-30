@@ -145,7 +145,7 @@ export function useLiquidityPool(name: TLiquidityPools) {
 			tokenPrice,
 			tvl,
 		}
-	}, [contract, t0p, t1p])
+	}, [contract, t0p, t1p, data])
 }
 
 export function useCurvePoolRewards(
