@@ -144,7 +144,7 @@ const NavTablet: React.FC = () => {
 
 				<MenuItem key={'help-center'}>
 					<a
-						href="https://resources.yaxis.io/"
+						href="https://numisme.gitbook.io/numisme/"
 						rel="noopener noreferrer"
 						target="_blank"
 					>
