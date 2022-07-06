@@ -43,7 +43,7 @@ const Stake: React.FC<Props> = ({ pool }) => {
 
 	const { call: handleStake, loading: loadingStake } = useContractWrite({
 		contractName: `rewards.${pool.rewards}`,
-		method: blockchain === 'ethereum' ? 'stake' : 'deposit',
+		method: 'deposit',
 		description: `stake ${pool.name}`,
 	})
 	const { call: handleUnstake, loading: loadingUnstake } = useContractWrite({

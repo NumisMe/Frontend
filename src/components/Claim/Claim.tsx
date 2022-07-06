@@ -34,15 +34,15 @@ const Claim: React.FC<Props> = ({ vault, rewardsContract, last }) => {
 	const { call: handleRewardsClaim, loading: loadingRewardsClaim } =
 		useContractWrite({
 			contractName: rewardsContract ? `rewards.${rewardsContract}` : '',
-			method: blockchain === 'ethereum' ? 'getReward' : 'claim',
-			description: translate(`claim YAXIS`),
+			method: 'claim',
+			description: 'claim NUME',
 		})
 
 	const { call: handleGaugeClaim, loading: loadingGaugeClaim } =
 		useContractWrite({
 			contractName: `internal.minter`,
 			method: 'mint(address)',
-			description: translate(`claim YAXIS`),
+			description: 'claim NUME',
 		})
 
 	const { loading: loadingClaimable, result: claimable } =

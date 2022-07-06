@@ -172,11 +172,19 @@ export class EthereumContracts {
 
 		this.rewards = {} as RewardsC
 		for (const title of RewardsContracts) {
-			this.rewards[title] = new Contract(
-				this.config.rewards[title],
-				abis.RewardsABI,
-				provider,
-			)
+			if(title == 'Uniswap NUME/ETH') {
+				this.rewards[title] = new Contract(
+					this.config.rewards[title],
+					abis.CurvePoolRewardsABI,
+					provider,
+				)
+			} else { 
+				this.rewards[title] = new Contract(
+					this.config.rewards[title],
+					abis.RewardsABI,
+					provider,
+				)
+			}
 		}
 
 		this.currencies = {

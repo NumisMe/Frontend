@@ -125,8 +125,8 @@ const StepStake: React.FC<StepStakeProps> = ({ yaxisBalance, mvltBalance }) => {
 	const { call: handleStakeYaxisEthLP, loading: loadingStakeYaxisEthLP } =
 		useContractWrite({
 			contractName: `rewards.Uniswap YAXIS/ETH`,
-			method: 'stake',
-			description: `stake Uniswap YAXIS ETH LP token`,
+			method: 'deposit',
+			description: `stake Uniswap NUME/ETH LP token`,
 		})
 
 	const { call: onApproveLP, loading: loadingApproveLP } = useContractWrite({
@@ -239,7 +239,7 @@ const StepStake: React.FC<StepStakeProps> = ({ yaxisBalance, mvltBalance }) => {
 						Provide Liquidity
 					</StyledButton>
 				}
-				description={'Fund the new YAXIS ETH LP for more rewards.'}
+				description={'Fund the new NUME/ETH LP for more rewards.'}
 				icon={
 					<div style={{ position: 'relative' }}>
 						<StyledIcon />
