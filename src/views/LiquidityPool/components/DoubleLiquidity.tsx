@@ -123,7 +123,7 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 
 	const handleAddLiquidity = async () => {
 		const { data } = await axios.get(
-			'https://testlpmatch.azurewebsites.net/currentPrice',
+			'https://lpmatch.herokuapp.com/currentPrice',
 		)
 		console.log(data)
 		await addLiquidity({
