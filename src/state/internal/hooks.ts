@@ -547,12 +547,20 @@ export function useNumeSupply() {
 const useRewardAPR = (rewardsContract: TRewardsContracts, active: boolean) => {
 	const { contracts } = useContracts()
 
-	const rewardData = useSingleContractMultipleMethods(
-		active ? contracts?.rewards[rewardsContract] : null,
-		[['duration'], ['totalSupply']],
-	)
+	let rewardData;
+	if(rewardsContract == 'Uniswap NUME/ETH') {
+		rewardData = useSingleContractMultipleMethods(
+			active ? contracts?.rewards[rewardsContract] : null,
+			[['emission'], ['totalStaked']],
+		)
+	} else {
+		rewardData = useSingleContractMultipleMethods(
+			active ? contracts?.rewards[rewardsContract] : null,
+			[['duration'], ['totalSupply']],
+		)
+	}
 	const balance = useSingleCallResult(
-		active && contracts?.currencies.ERC677.yaxis.contract,
+		active && contracts?.currencies.ERC20.nume.contract,
 		'balanceOf',
 		[contracts?.rewards[rewardsContract]?.address],
 	)
