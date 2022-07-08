@@ -282,10 +282,18 @@ export function useStakedBalances(): StakedBalanceReturn {
 		[account],
 	)
 
+	const balances2 = useMultipleContractSingleData(
+		functionName &&
+			rewardsContracts.slice(-1).map(([, contract]) => contract.address),
+		contractInterface2,
+		'userStaked',
+		[account],
+	)
+
 	return useMemo(() => {
 		//return defaultStakedBalancesState;
 		return account && balances.length > 0
-			? balances.reduce<StakedBalanceReturn>((memo, token, i) => {
+			? balances.concat(balances2).reduce<StakedBalanceReturn>((memo, token, i) => {
 					const value = new BigNumber(
 						token?.result?.[0]?.toString() || 0,
 					)
@@ -300,7 +308,7 @@ export function useStakedBalances(): StakedBalanceReturn {
 					return memo
 			  }, {} as StakedBalanceReturn)
 			: defaultStakedBalancesState
-	}, [account, rewardsContracts, balances])
+	}, [account, rewardsContracts, balances, balances2])
 }
 
 type ApprovedAmounts = { [tokenId: string]: CurrencyApproved | undefined }
