@@ -136,7 +136,7 @@ const NavTablet: React.FC = () => {
 
 				<MenuItem key={'/governance'}>
 					<StyledLink to="/governance">
-						{translate('Governance')}
+						{'Staking'}
 					</StyledLink>
 				</MenuItem>
 
