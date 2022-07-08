@@ -26,7 +26,6 @@ import {
 	useSingleContractMultipleMethods,
 	useSingleCallResult,
 	useMultipleContractSingleData,
-	useMultipleContractMultipleData,
 } from '../onchain/hooks'
 import useWeb3Provider from '../../hooks/useWeb3Provider'
 import { BigNumber } from 'bignumber.js'
@@ -237,73 +236,73 @@ const defaultStakedBalancesState = Object.fromEntries(
 ) as StakedBalanceReturn
 
 export function useStakedBalances(): StakedBalanceReturn {
-	const { account } = useWeb3Provider()
-	const { loading, contracts } = useContracts()
-	const { blockchain } = useChainInfo()
+	// const { account } = useWeb3Provider()
+	// const { loading, contracts } = useContracts()
+	// const { blockchain } = useChainInfo()
 
-	const rewardsContracts = useMemo(
-		() => Object.entries(contracts?.rewards || {}),
-		[contracts],
-	)
+	// const rewardsContracts = useMemo(
+	// 	() => Object.entries(contracts?.rewards || {}),
+	// 	[contracts],
+	// )
 
-	const contractInterface = useMemo(
-		() =>
-			!loading && contracts?.rewards
-				? Object.values(contracts?.rewards || {})[0]?.interface
-				: null,
-		[loading, contracts],
-	)
+	// const contractInterface = useMemo(
+	// 	() =>
+	// 		!loading && contracts?.rewards
+	// 			? Object.values(contracts?.rewards || {})[0]?.interface
+	// 			: null,
+	// 	[loading, contracts],
+	// )
 
-	const contractInterface2 = useMemo(
-		() =>
-			!loading && contracts?.rewards
-				? Object.values(contracts?.rewards || {})[2]?.interface
-				: null,
-		[loading, contracts],
-	)
+	// const contractInterface2 = useMemo(
+	// 	() =>
+	// 		!loading && contracts?.rewards
+	// 			? Object.values(contracts?.rewards || {})[2]?.interface
+	// 			: null,
+	// 	[loading, contracts],
+	// )
 
-	const functionName = useMemo(() => {
-		const ethereumName = 'balanceOf',
-			avalancheName = 'userStaked'
+	// const functionName = useMemo(() => {
+	// 	const ethereumName = 'balanceOf',
+	// 		avalancheName = 'userStaked'
 
-		try {
-			if (contractInterface?.getFunction(ethereumName))
-				return ethereumName
-		} catch {
-			return avalancheName
-		}
-	}, [contractInterface, blockchain])
+	// 	try {
+	// 		if (contractInterface?.getFunction(ethereumName))
+	// 			return ethereumName
+	// 	} catch {
+	// 		return avalancheName
+	// 	}
+	// }, [contractInterface, blockchain])
 
-	const balances = useMultipleContractMultipleData(
-		functionName &&
-			rewardsContracts.map(([, contract]) => contract.address),
-		contractInterface,
-		contractInterface2,
-		functionName ?? '',
-		'userStaked',
-		2,
-		[account],
-	)
+	// const balances = useMultipleContractMultipleData(
+	// 	functionName &&
+	// 		rewardsContracts.map(([, contract]) => contract.address),
+	// 	contractInterface,
+	// 	contractInterface2,
+	// 	functionName ?? '',
+	// 	'userStaked',
+	// 	2,
+	// 	[account],
+	// )
 
 	return useMemo(() => {
-		//return defaultStakedBalancesState;
-		return account && balances.length > 0
-			? balances.reduce<StakedBalanceReturn>((memo, token, i) => {
-					const value = new BigNumber(
-						token?.result?.[0]?.toString() || 0,
-					)
-					const amount = new BigNumber(
-						value.toString() || 0,
-					).dividedBy(10 ** YAXIS.decimals)
-					memo[rewardsContracts[i][0]] = {
-						...YAXIS,
-						value,
-						amount,
-					}
-					return memo
-			  }, {} as StakedBalanceReturn)
-			: defaultStakedBalancesState
-	}, [account, rewardsContracts, balances])
+		return defaultStakedBalancesState;
+		// return account && balances.length > 0
+		// 	? balances.reduce<StakedBalanceReturn>((memo, token, i) => {
+		// 			const value = new BigNumber(
+		// 				token?.result?.[0]?.toString() || 0,
+		// 			)
+		// 			const amount = new BigNumber(
+		// 				value.toString() || 0,
+		// 			).dividedBy(10 ** YAXIS.decimals)
+		// 			memo[rewardsContracts[i][0]] = {
+		// 				...YAXIS,
+		// 				value,
+		// 				amount,
+		// 			}
+		// 			return memo
+		// 	  }, {} as StakedBalanceReturn)
+		// 	: defaultStakedBalancesState
+	}, [])//[account, rewardsContracts, balances])
 }
 
 type ApprovedAmounts = { [tokenId: string]: CurrencyApproved | undefined }
