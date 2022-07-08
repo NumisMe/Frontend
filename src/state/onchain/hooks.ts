@@ -368,7 +368,7 @@ export function useMultipleContractMultipleData(
 		() => contractInterface2?.getFunction(methodName2),
 		[contractInterface2, methodName2],
 	)
-	
+
 	const callData2: string | undefined = useMemo(
 		() =>
 			fragment2 && isValidMethodArgs(callInputs)
@@ -379,7 +379,7 @@ export function useMultipleContractMultipleData(
 
 	const calls = useMemo(
 		() =>
-			fragment && addresses && addresses.length > 0 && callData && callData2
+			fragment && fragment2 && addresses && addresses.length > 0 && callData && callData2
 				? addresses.map<Call | undefined>((address) => {
 					if(address == differentAddress) {
 						return address && callData2
