@@ -253,15 +253,14 @@ export function useStakedBalances(): StakedBalanceReturn {
 	)
 
 	const functionName = useMemo(() => {
-		// const ethereumName = 'balanceOf',
-		// 	avalancheName = 'userStaked'
-		// try {
-		// 	if (contractInterface?.getFunction(ethereumName))
-		// 		return ethereumName
-		// } catch {
-		// 	return avalancheName
-		// }
-		return 'userStaked';
+		const ethereumName = 'userStaked',
+			avalancheName = 'userStaked'
+		try {
+			if (contractInterface?.getFunction(ethereumName))
+				return ethereumName
+		} catch {
+			return avalancheName
+		}
 	}, [contractInterface, blockchain])
 
 	const balances = useMultipleContractSingleData(
