@@ -235,60 +235,62 @@ const defaultStakedBalancesState = Object.fromEntries(
 	]),
 ) as StakedBalanceReturn
 export function useStakedBalances(): StakedBalanceReturn {
-	const { account } = useWeb3Provider()
-	const { loading, contracts } = useContracts()
-	const { blockchain } = useChainInfo()
+	// const { account } = useWeb3Provider()
+	// const { loading, contracts } = useContracts()
+	// const { blockchain } = useChainInfo()
 
-	const rewardsContracts = useMemo(
-		() => Object.entries(contracts?.rewards || {}),
-		[contracts],
-	)
+	// const rewardsContracts = useMemo(
+	// 	() => Object.entries(contracts?.rewards || {}),
+	// 	[contracts],
+	// )
 
-	const contractInterface = useMemo(
-		() =>
-			!loading && contracts?.rewards
-				? Object.values(contracts?.rewards || {})[0]?.interface
-				: null,
-		[loading, contracts],
-	)
+	// const contractInterface = useMemo(
+	// 	() =>
+	// 		!loading && contracts?.rewards
+	// 			? Object.values(contracts?.rewards || {})[0]?.interface
+	// 			: null,
+	// 	[loading, contracts],
+	// )
 
-	const functionName = useMemo(() => {
-		const ethereumName = 'userStaked',
-			avalancheName = 'userStaked'
-		try {
-			if (contractInterface?.getFunction(ethereumName))
-				return ethereumName
-		} catch {
-			return avalancheName
-		}
-	}, [contractInterface, blockchain])
+	// const functionName = useMemo(() => {
+	// 	const ethereumName = 'balanceOf',
+	// 		avalancheName = 'userStaked'
 
-	const balances = useMultipleContractSingleData(
-		functionName &&
-			rewardsContracts.map(([, contract]) => contract.address),
-		contractInterface,
-		functionName ?? '',
-		[account],
-	)
+	// 	try {
+	// 		if (contractInterface?.getFunction(ethereumName))
+	// 			return ethereumName
+	// 	} catch {
+	// 		return avalancheName
+	// 	}
+	// }, [contractInterface, blockchain])
+
+	// const balances = useMultipleContractSingleData(
+	// 	functionName &&
+	// 		rewardsContracts.map(([, contract]) => contract.address),
+	// 	contractInterface,
+	// 	functionName ?? '',
+	// 	[account],
+	// )
 
 	return useMemo(() => {
-		return account && balances.length > 0
-			? balances.reduce<StakedBalanceReturn>((memo, token, i) => {
-					const value = new BigNumber(
-						token?.result?.[0]?.toString() || 0,
-					)
-					const amount = new BigNumber(
-						value.toString() || 0,
-					).dividedBy(10 ** YAXIS.decimals)
-					memo[rewardsContracts[i][0]] = {
-						...YAXIS,
-						value,
-						amount,
-					}
-					return memo
-			  }, {} as StakedBalanceReturn)
-			: defaultStakedBalancesState
-	}, [account, rewardsContracts, balances])
+		return defaultStakedBalancesState;
+		// return account && balances.length > 0
+		// 	? balances.reduce<StakedBalanceReturn>((memo, token, i) => {
+		// 			const value = new BigNumber(
+		// 				token?.result?.[0]?.toString() || 0,
+		// 			)
+		// 			const amount = new BigNumber(
+		// 				value.toString() || 0,
+		// 			).dividedBy(10 ** YAXIS.decimals)
+		// 			memo[rewardsContracts[i][0]] = {
+		// 				...YAXIS,
+		// 				value,
+		// 				amount,
+		// 			}
+		// 			return memo
+		// 	  }, {} as StakedBalanceReturn)
+		// 	: defaultStakedBalancesState
+	}, /*[account, rewardsContracts, balances]*/ [])
 }
 
 type ApprovedAmounts = { [tokenId: string]: CurrencyApproved | undefined }
