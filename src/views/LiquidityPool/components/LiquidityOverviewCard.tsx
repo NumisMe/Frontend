@@ -114,7 +114,7 @@ const LiquidityOverviewCard: React.FC<LiquidityOverviewCardProps> = ({
 										</Row>
 										<TooltipRow
 											main={
-												translate('YAXIS rewards APY') +
+												'NUME rewards APY' +
 												':'
 											}
 											value={yaxisAprPercent
