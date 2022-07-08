@@ -345,12 +345,17 @@ export function useMultipleContractMultipleData(
 	callInputs?: OptionalMethodInputs,
 	options?: ListenerOptions,
 ): CallState[] {
-	const differentAddress = addresses[idOf2];
+
+	const differentAddress = useMemo(
+		() => addresses ? addresses[idOf2] : '',
+		[addresses, idOf2],
+	)
 
 	const fragment = useMemo(
 		() => contractInterface?.getFunction(methodName),
 		[contractInterface, methodName],
 	)
+
 	const callData: string | undefined = useMemo(
 		() =>
 			fragment && isValidMethodArgs(callInputs)
@@ -363,6 +368,7 @@ export function useMultipleContractMultipleData(
 		() => contractInterface2?.getFunction(methodName2),
 		[contractInterface2, methodName2],
 	)
+	
 	const callData2: string | undefined = useMemo(
 		() =>
 			fragment2 && isValidMethodArgs(callInputs)
