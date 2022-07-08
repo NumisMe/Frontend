@@ -333,6 +333,79 @@ export function useMultipleContractSingleData(
 	}, [fragment, results, contractInterface, latestBlockNumber])
 }
 
+
+//Try not to use until updated
+export function useMultipleContractMultipleData(
+	addresses: (string | undefined)[],
+	contractInterface: Interface,
+	contractInterface2: Interface,
+	methodName: string,
+	methodName2: string,
+	idOf2: any,
+	callInputs?: OptionalMethodInputs,
+	options?: ListenerOptions,
+): CallState[] {
+	const differentAddress = addresses[idOf2];
+
+	const fragment = useMemo(
+		() => contractInterface?.getFunction(methodName),
+		[contractInterface, methodName],
+	)
+	const callData: string | undefined = useMemo(
+		() =>
+			fragment && isValidMethodArgs(callInputs)
+				? contractInterface.encodeFunctionData(fragment, callInputs)
+				: undefined,
+		[callInputs, contractInterface, fragment],
+	)
+
+	const fragment2 = useMemo(
+		() => contractInterface2?.getFunction(methodName2),
+		[contractInterface2, methodName2],
+	)
+	const callData2: string | undefined = useMemo(
+		() =>
+			fragment2 && isValidMethodArgs(callInputs)
+				? contractInterface2.encodeFunctionData(fragment2, callInputs)
+				: undefined,
+		[callInputs, contractInterface2, fragment2],
+	)
+
+	const calls = useMemo(
+		() =>
+			fragment && addresses && addresses.length > 0 && callData && callData2
+				? addresses.map<Call | undefined>((address) => {
+					if(address == differentAddress) {
+						return address && callData2
+							? {
+									address,
+									callData2,
+							  }
+							: undefined
+					} else {
+						return address && callData
+							? {
+									address,
+									callData,
+							  }
+							: undefined
+					}
+				  })
+				: [],
+		[addresses, callData, fragment, callData2, fragment2],
+	)
+
+	const results = useCallsData(calls, options)
+
+	const latestBlockNumber = useBlockNumber()
+
+	return useMemo(() => {
+		return results.map((result) =>
+			toCallState(result, contractInterface, fragment, latestBlockNumber),
+		)
+	}, [fragment, results, contractInterface, latestBlockNumber])
+}
+
 export function useSingleCallResult(
 	contract: Contract | null | undefined,
 	methodName: string,

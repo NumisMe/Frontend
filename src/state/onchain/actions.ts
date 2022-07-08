@@ -2,7 +2,8 @@ import { createAction } from '@reduxjs/toolkit'
 
 export interface Call {
 	address: string
-	callData: string
+	callData?: string
+	callData2?: string
 }
 
 const ADDRESS_REGEX = /^0x[a-fA-F0-9]{40}$/
