@@ -50,7 +50,7 @@ const Claim: React.FC<Props> = ({ vault, rewardsContract, last }) => {
 			vault ? `vaults.${vault}.gauge` : `rewards.${rewardsContract}`,
 			vault
 				? 'claimable_tokens'
-				: blockchain === 'ethereum'
+				: blockchain === 'ethereum' && rewardsContract != 'Uniswap NUME/ETH'
 				? 'earned'
 				: 'pending(address)',
 			[account],
