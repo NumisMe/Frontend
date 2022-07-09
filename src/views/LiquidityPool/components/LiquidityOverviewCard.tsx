@@ -84,7 +84,7 @@ const LiquidityOverviewCard: React.FC<LiquidityOverviewCardProps> = ({
 									{translate('Annual Percentage Rate')}
 								</Row>
 								<TooltipRow
-									main={translate('YAXIS rewards APR') + ':'}
+									main={'NUME rewards APR' + ':'}
 									value={yaxisAprPercent.toNumber()}
 								/>
 							</>
@@ -114,7 +114,7 @@ const LiquidityOverviewCard: React.FC<LiquidityOverviewCardProps> = ({
 										</Row>
 										<TooltipRow
 											main={
-												translate('YAXIS rewards APY') +
+												'NUME rewards APY' +
 												':'
 											}
 											value={yaxisAprPercent
