@@ -2,6 +2,7 @@ import { JsonFragment } from '@ethersproject/abi'
 import BalancerAbi from './balancer.json'
 import ControllerABI from './Controller.json'
 import ConvexRewardPoolABI from './ConvexRewardPool.json'
+import CurvePoolRewardsABI from './CurvePoolRewards.json'
 import CRVABI from './CRV.json'
 import CurvePoolABI from './CurvePool.json'
 import CVXABI from './CVX.json'
@@ -65,4 +66,5 @@ export const abis = {
 	XYaxStakingABI: XYaxStakingABI as JsonFragment[],
 	YaxisChefABI: YaxisChefABI as JsonFragment[],
 	YAxisMetaVaultABI: YAxisMetaVaultABI as JsonFragment[],
+	CurvePoolRewardsABI: CurvePoolRewardsABI as JsonFragment[],
 }
