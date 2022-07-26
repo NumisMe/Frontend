@@ -40,7 +40,7 @@ export const CurrenciesERC20 = <const>[
 	'weth',
 	'wavax',
 	'joe',
-	'nume'
+	'nume',
 ]
 export type TCurrenciesERC20 = typeof CurrenciesERC20[number]
 
@@ -76,6 +76,7 @@ export const InternalContracts = <const>[
 	'controller',
 	'manager',
 	'feeDistributor',
+	'alchemist',
 ]
 export type TInternalContracts = typeof InternalContracts[number]
 

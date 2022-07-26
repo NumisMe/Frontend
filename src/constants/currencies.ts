@@ -548,6 +548,13 @@ export const LINKSWAP_LP: Currency = {
 	decimals: 18,
 }
 
+export const USDY: Currency = {
+	name: 'USDY',
+	tokenId: 'usdy',
+	icon: usdc,
+	decimals: 18,
+}
+
 export const YAX_ETH_LINKSWAP_LP = {
 	...LINKSWAP_LP,
 	tokenId: 'YAX_ETH_LINKSWAP_LP',
@@ -625,5 +632,6 @@ export const Currencies = {
 	LINKSWAP_LP,
 	YAX_ETH_LINKSWAP_LP,
 	TRADERJOE_LP,
-	NUME_ETH_UNISWAP_LP
+	NUME_ETH_UNISWAP_LP,
+	USDY,
 }

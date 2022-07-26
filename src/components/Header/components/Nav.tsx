@@ -118,15 +118,15 @@ const Nav: React.FC = () => {
 			</StyledSubMenu>
 
 			<MenuItem key={'/governance'}>
-				<StyledLink to="/governance">
-					Staking
-				</StyledLink>
+				<StyledLink to="/governance">Staking</StyledLink>
+			</MenuItem>
+
+			<MenuItem key={'/borrow'}>
+				<StyledLink to="/borrow">Borrow</StyledLink>
 			</MenuItem>
 
 			<MenuItem key={'/swap'}>
-				<StyledLink to="/swap">
-					YAXIS Swap
-				</StyledLink>
+				<StyledLink to="/swap">YAXIS Swap</StyledLink>
 			</MenuItem>
 		</StyledMenu>
 	)

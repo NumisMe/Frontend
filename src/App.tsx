@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
+import Borrow from './views/Borrow'
 import Home from './views/Home'
 import Vault from './views/Vault'
 import VaultDetails from './views/VaultDetails'
@@ -91,8 +92,9 @@ const App: React.FC = () => {
 						<Route path="/faucet" element={<Faucet />} />
 					</>
 				)}
-				
+
 				<Route path="/swap" element={<SwapToken />} />
+				<Route path="/borrow" element={<Borrow />} />
 
 				<Route path="*" element={<Navigate to="/" replace={true} />} />
 			</Routes>

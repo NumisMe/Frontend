@@ -22,6 +22,8 @@ const currencies: EthereumCurrenciesConfig = {
 		spell: '0x090185f2135308bad17527004364ebcc2d37e5f6',
 		frax: '0x853d955acef822db058eb8505911ed77f175b99e',
 		nume: '0x34769d3e122c93547836addd3eb298035d68f1c3',
+		usdy: '0x684307a89d59c55e873642038ac4467ac969fac1',
+		mim3crv: '0x7d91365bc65cf9cadc6ae1d86d35f5add750fe37',
 	},
 	ERC677: {
 		yaxis: '0x0adA190c81b814548ddC2F6AdC4a689ce7C1FE73',
@@ -114,6 +116,7 @@ const mainnet: EthereumConfig = {
 		xYaxStaking: '0xeF31Cb88048416E301Fee1eA13e7664b887BA7e8',
 		yAxisMetaVault: '0xBFbEC72F2450eF9Ab742e4A27441Fa06Ca79eA6a',
 		LPMatch: '0xf3a83153533634A0648907A87f165F4a355Db1D2',
+		alchemist: '0x986aaa537b8cc170761FDAC6aC4fc7F9d8a20A8C',
 	},
 	rewards: {
 		MetaVault: '0x226f9954A1221cDe805C76CfB312A5d761630E14',

@@ -14,9 +14,7 @@ export const UniswapLiquidityPools = <const>[
 	'LP Double Up Program (Invite Only)',
 ]
 export type TUniswapLiquidityPools = typeof UniswapLiquidityPools[number]
-export const LiquidityPools = <const>[
-	...UniswapLiquidityPools,
-]
+export const LiquidityPools = <const>[...UniswapLiquidityPools]
 export type TLiquidityPools = typeof LiquidityPools[number]
 export type LiquidityPoolsTypes = 'linkswap' | 'uniswap'
 export interface lpToken {
@@ -55,7 +53,9 @@ export const CurrenciesERC20 = <const>[
 	'mvlt',
 	'spell',
 	'frax',
-	'nume'
+	'nume',
+	'mim3crv',
+	'usdy',
 ]
 export type TCurrenciesERC20 = typeof CurrenciesERC20[number]
 
@@ -98,6 +98,7 @@ export const InternalContracts = <const>[
 	'manager',
 	'feeDistributor',
 	'LPMatch',
+	'alchemist',
 ]
 export type TInternalContracts = typeof InternalContracts[number]
 
@@ -137,13 +138,7 @@ export const ExternalContracts = <const>[
 ]
 export type TExternalContracts = typeof ExternalContracts[number]
 
-export const Vaults = <const>[
-	'usd',
-	'eth',
-	'cvx',
-	'tricrypto',
-	'frax',
-]
+export const Vaults = <const>['usd', 'eth', 'cvx', 'tricrypto', 'frax']
 export type TVaults = typeof Vaults[number]
 export interface Vault {
 	url: string

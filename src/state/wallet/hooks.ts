@@ -276,7 +276,9 @@ export function useStakedBalances(): StakedBalanceReturn {
 
 	const balances = useMultipleContractSingleData(
 		functionName &&
-			rewardsContracts.slice(0, -1).map(([, contract]) => contract.address),
+			rewardsContracts
+				.slice(0, -1)
+				.map(([, contract]) => contract.address),
 		contractInterface,
 		functionName ?? '',
 		[account],
@@ -293,20 +295,22 @@ export function useStakedBalances(): StakedBalanceReturn {
 	return useMemo(() => {
 		//return defaultStakedBalancesState;
 		return account && balances.length > 0
-			? balances.concat(balances2).reduce<StakedBalanceReturn>((memo, token, i) => {
-					const value = new BigNumber(
-						token?.result?.[0]?.toString() || 0,
-					)
-					const amount = new BigNumber(
-						value.toString() || 0,
-					).dividedBy(10 ** YAXIS.decimals)
-					memo[rewardsContracts[i][0]] = {
-						...YAXIS,
-						value,
-						amount,
-					}
-					return memo
-			  }, {} as StakedBalanceReturn)
+			? balances
+					.concat(balances2)
+					.reduce<StakedBalanceReturn>((memo, token, i) => {
+						const value = new BigNumber(
+							token?.result?.[0]?.toString() || 0,
+						)
+						const amount = new BigNumber(
+							value.toString() || 0,
+						).dividedBy(10 ** YAXIS.decimals)
+						memo[rewardsContracts[i][0]] = {
+							...YAXIS,
+							value,
+							amount,
+						}
+						return memo
+					}, {} as StakedBalanceReturn)
 			: defaultStakedBalancesState
 	}, [account, rewardsContracts, balances, balances2])
 }
@@ -1272,16 +1276,7 @@ export function useBoosts(): useUserBoostReturn {
 			wavax,
 			joewavax,
 		}
-	}, [
-		usd,
-		eth,
-		cvx,
-		tricrypto,
-		frax,
-		avax,
-		wavax,
-		joewavax,
-	])
+	}, [usd, eth, cvx, tricrypto, frax, avax, wavax, joewavax])
 }
 
 export type VaultsAPRWithBoost = VaultAPR & {
@@ -1343,4 +1338,63 @@ export function useVaultsAPRWithBoost() {
 			) as ReturnVaultsAPRWithBoost,
 		[apr, boosts],
 	)
+}
+
+export function useAlchemist() {
+	const { account } = useWeb3Provider()
+	const { contracts } = useContracts()
+	const apr = useVaultsAPRWithBoost()
+	const { blockchain } = useChainInfo()
+
+	const [loading, setLoading] = useState(true)
+
+	const results = useSingleContractMultipleMethods(
+		contracts?.internal.alchemist,
+		[
+			['collateralizationLimit()', []],
+			['getCdpTotalDeposited(address)', [account]],
+			['getCdpTotalDebt(address)', [account]],
+			['getCdpTotalCredit(address)', [account]],
+		],
+	)
+
+	useEffect(() => {
+		if (results.every(({ valid, loading }) => valid && !loading))
+			setLoading(false)
+	}, [results])
+
+	return useMemo(() => {
+		const [
+			collateralizationLimit,
+			getCdpTotalDeposited,
+			getCdpTotalDebt,
+			getCdpTotalCredit,
+		] = results.map(({ result, loading }, i) => {
+			if (loading) return ethers.BigNumber.from(0)
+			if (!result) return ethers.BigNumber.from(0)
+			return result
+		})
+
+		const collateralLimit = new BigNumber(
+			collateralizationLimit.toString(),
+		).div(10 ** 18)
+		const deposited = new BigNumber(getCdpTotalDeposited.toString()).div(
+			10 ** 18,
+		)
+		const debt = new BigNumber(getCdpTotalDebt.toString()).div(10 ** 18)
+		const credit = new BigNumber(getCdpTotalCredit.toString()).div(10 ** 18)
+		const free = deposited.minus(debt.times(collateralLimit)).plus(credit)
+		const toBorrow = free.div(collateralLimit)
+		const totalAPR = apr[blockchain].usd.totalAPR
+
+		return {
+			loading,
+			deposited,
+			debt,
+			credit,
+			free,
+			toBorrow,
+			totalAPR,
+		}
+	}, [results, loading])
 }
