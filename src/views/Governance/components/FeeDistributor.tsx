@@ -7,7 +7,7 @@ import useTranslation from '../../../hooks/useTranslation'
 const FeeDistributor: React.FC = () => {
 	const translate = useTranslation()
 	return (
-		<Card title={translate('Fee Distribution')} icon="verticalbars">
+		<Card title={'Revenue Share'} icon="verticalbars">
 			<ClaimFees />
 		</Card>
 	)
