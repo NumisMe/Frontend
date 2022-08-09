@@ -18,8 +18,8 @@ const ClaimFees: React.FC = () => {
 
 	const { contracts, loading: loadingContracts } = useContracts()
 
-	const yaxis = useMemo(
-		() => contracts?.currencies?.ERC677.yaxis.contract.address,
+	const weth = useMemo(
+		() => contracts?.currencies?.ERC20.weth.contract.address,
 		[contracts],
 	)
 
@@ -27,14 +27,14 @@ const ClaimFees: React.FC = () => {
 		useContractWrite({
 			contractName: `internal.feeDistributor`,
 			method: 'claimRewards',
-			description: `claim YAXIS rewards`,
+			description: `claim WETH rewards`,
 		})
 
 	const { loading: loadingRewardAmount, result: rewardAmount } =
 		useSingleCallResultByName(
 			`internal.feeDistributor`,
 			'getRewardAmount',
-			[yaxis, account],
+			[weth, account],
 		)
 
 	const rewardsClaimable = useMemo(
@@ -51,7 +51,7 @@ const ClaimFees: React.FC = () => {
 			secondary={
 				<Value
 					value={getBalanceNumber(rewardsClaimable, 0)}
-					numberSuffix=" NUME"
+					numberSuffix=" WETH"
 					decimals={2}
 				/>
 			}
@@ -67,7 +67,7 @@ const ClaimFees: React.FC = () => {
 							onClick={() => {
 								if (rewardsClaimable.gt(0)) {
 									handleClaimFees({
-										args: [yaxis],
+										args: [weth],
 									})
 								}
 							}}

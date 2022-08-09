@@ -831,30 +831,32 @@ export function useAPY(
 		blockchain === 'ethereum',
 	)
 	const curveBaseAPR = useFetchCurvePoolBaseAPR()
-	const {
-		rewardsPerBlock: rewardsPerBlockEthereum,
-		apr: rewardsAPREthereum,
-	} = useRewardAPR(rewardsContract, blockchain === 'ethereum')
+	// const {
+	// 	rewardsPerBlock: rewardsPerBlockEthereum,
+	// 	apr: rewardsAPREthereum,
+	// } = useRewardAPR(rewardsContract, blockchain === 'ethereum')
 
 	const {
 		rewardsPerBlock: rewardsPerBlockAvalanche,
 		apr: rewardsAPRAvalanche,
-	} = useAvalancheRewardAPR(rewardsContract, blockchain === 'avalanche')
+	} = useAvalancheRewardAPR(rewardsContract, blockchain === 'ethereum')
 
 	const rewardsAPR = useMemo(
 		() =>
-			blockchain === 'ethereum'
-				? rewardsAPREthereum
-				: rewardsAPRAvalanche,
-		[blockchain, rewardsPerBlockEthereum, rewardsPerBlockAvalanche],
+			// blockchain === 'ethereum'
+			// 	? rewardsAPREthereum
+			// 	: 
+				rewardsAPRAvalanche,
+		[blockchain, /*rewardsPerBlockEthereum,*/ rewardsPerBlockAvalanche],
 	)
 
 	const rewardsPerBlock = useMemo(
 		() =>
-			blockchain === 'ethereum'
-				? rewardsPerBlockEthereum
-				: rewardsPerBlockAvalanche,
-		[blockchain, rewardsPerBlockEthereum, rewardsPerBlockAvalanche],
+			// blockchain === 'ethereum'
+			// 	? rewardsPerBlockEthereum
+			// 	: 
+			rewardsPerBlockAvalanche,
+		[blockchain, /*rewardsPerBlockEthereum,*/ rewardsPerBlockAvalanche],
 	)
 
 	return useMemo(() => {

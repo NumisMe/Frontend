@@ -94,7 +94,7 @@ const Governance: React.FC = () => {
 				<StyledCol xs={24} sm={24} md={24} lg={8}>
 					{activeKey === '#lock' && (
 						<>
-							{/* <FeeDistributor /> */}
+							<FeeDistributor />
 							<GovernanceOverview />
 							<BoostCalculator />
 						</>
