@@ -15,13 +15,13 @@ const Nav: React.FC = () => {
 		<StyledRow align="middle">
 			<StyledCol xs={24} sm={24} md={9}>
 				<Row justify="center">
-					{/* <StyledLink
+					<StyledLink
 						target="_blank"
-						href="https://immunefi.com/bounty/yaxis/"
+						href="/#/swap"
 						rel="noopener noreferrer"
 					>
-						{translate('Security')}
-					</StyledLink> */}
+						YAXIS Swap
+					</StyledLink>
 				</Row>
 			</StyledCol>
 

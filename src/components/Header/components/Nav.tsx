@@ -123,11 +123,11 @@ const Nav: React.FC = () => {
 				</StyledLink>
 			</MenuItem>
 
-			<MenuItem key={'/swap'}>
+			{/* <MenuItem key={'/swap'}>
 				<StyledLink to="/swap">
 					YAXIS Swap
 				</StyledLink>
-			</MenuItem>
+			</MenuItem> */}
 		</StyledMenu>
 	)
 }
