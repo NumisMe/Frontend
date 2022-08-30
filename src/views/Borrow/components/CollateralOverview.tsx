@@ -24,10 +24,10 @@ export function CollateralOverview() {
 						<Col>
 							<Value
 								value={`${
-									balances?.mim3crv?.amount
-										? balances?.mim3crv?.amount.toNumber()
+									balances?.mim?.amount
+										? balances?.mim?.amount.toNumber()
 										: '0'
-								} MIMcrv`}
+								} MIM`}
 							/>
 						</Col>
 					</Row>

@@ -32,7 +32,7 @@ const Deposit: React.FC = () => {
 			<div style={{ margin: '20px' }}>
 				<Row>
 					<StyledText>
-						Deposit MIMcrv in order to lock your collateral. Your
+						Deposit MIM in order to lock your collateral. Your
 						collateral earns yield that pays down your loan,
 						allowing you to borrow USDY stablecoins against future
 						yield.
@@ -43,7 +43,7 @@ const Deposit: React.FC = () => {
 			<Divider style={{ margin: 0, padding: 0 }} />
 
 			<ApprovalCover
-				contractName={`currencies.ERC20.mim3crv.contract`}
+				contractName={`currencies.ERC20.mim.contract`}
 				approvee={contracts?.internal.alchemist.address}
 			>
 				<StyledDiv>
@@ -57,10 +57,10 @@ const Deposit: React.FC = () => {
 									{translate('Wallet Balance')}
 									{': '}
 									<span style={{ fontWeight: 600 }}>
-										{balances?.mim3crv?.amount
-											? balances?.mim3crv?.amount.toNumber()
+										{balances?.mim?.amount
+											? balances?.mim?.amount.toNumber()
 											: '-'}{' '}
-										MIMcrv
+										MIM
 									</span>
 								</StyledSmallText>
 							</Row>
@@ -74,14 +74,14 @@ const Deposit: React.FC = () => {
 									min={'0'}
 									placeholder="0"
 									disabled={
-										balances?.mim3crv?.amount
-											? balances?.mim3crv?.amount.isZero()
+										balances?.mim?.amount
+											? balances?.mim?.amount.isZero()
 											: true
 									}
-									suffix={'MIMcrv'}
+									suffix={'MIM'}
 									onClickMax={() =>
 										setAmount(
-											balances?.mim3crv?.amount.toString(),
+											balances?.mim?.amount.toString(),
 										)
 									}
 								/>
@@ -93,7 +93,7 @@ const Deposit: React.FC = () => {
 						style={{ width: '100%', marginTop: '14px' }}
 						disabled={
 							loadingBalances ||
-							balances?.mim3crv?.amount?.isZero() ||
+							balances?.mim?.amount?.isZero() ||
 							new BigNumber(amount).isZero() ||
 							new BigNumber(amount).isNaN()
 						}

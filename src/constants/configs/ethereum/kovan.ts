@@ -10,7 +10,7 @@ const currencies: EthereumCurrenciesConfig = {
 		crv: '0xDB0E1fe102Be9c0fD355100271283dF18bA4797F',
 		wbtc: '0xf9Bba2B6CD5ABA1F8023AA9B8C5b50Ef4666157c',
 		link: '0xb364c348CC4B9600c2b2C0C19f7425D4f469594c',
-		mim: '0x4B6444Aac176e6937A2f8eA712f75D4B8E2F9589',
+		mim: '0xa770697ceca9af6584aa59dd9f226eaf6cd0c2dc',
 		cvx: '0x3631944Bd99a426d628070d91CDC559ae4276a6d',
 		yax: '0xf07C80993E9b27ae811b059E0FABD7539F8a1197',
 		usdc: '0x2cae85b5aD02764ee3e804968A0fFe70c768917f',
@@ -23,7 +23,7 @@ const currencies: EthereumCurrenciesConfig = {
 		frax: '0x64C1d8cd206aF84f54eadb1cbD1E4c3643875Ee8', // needs mock
 		nume: '0x34769d3e122c93547836addd3eb298035d68f1c3',
 		usdy: '0x684307a89d59c55e873642038ac4467ac969fac1',
-		mim3crv: '0x7d91365bc65cf9cadc6ae1d86d35f5add750fe37',
+		mim3crv: '0xa24a13f1ded8e8ddd30472fc8ebb3b6fee5987b9',
 	},
 	ERC677: {
 		yaxis: '0xDE78295b8a50413f5a6faBd1f4921E8449d2433C',
@@ -63,21 +63,21 @@ const externalPools: EthereumExternalPoolsConfig = {
 		},
 		crvcvxeth: {
 			currency: 'usd',
-			pool: '0xF0cCAbb34899652eFea9751616fd94A73E4bD501',
+			pool: '0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7',
 			token: '0xd36C376154e770ea4f6596D7400ACe73b4f67916',
 			gauge: '0xCD7C79e7A0678af31a3b5b0aFc5dd89aB734feD8',
 			convexRewards: '0xFDAc13A5f54A7f1784FE2d1AA6fA30ee5C92fcb8', // needs mock
 		},
 		crv3crypto: {
 			currency: 'usd',
-			pool: '0xF0cCAbb34899652eFea9751616fd94A73E4bD501',
+			pool: '0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7',
 			token: '0x924CAf02657d1c98C31670A412b9672E6F42664c',
 			gauge: '0xCD7C79e7A0678af31a3b5b0aFc5dd89aB734feD8',
 			convexRewards: '0xFDAc13A5f54A7f1784FE2d1AA6fA30ee5C92fcb8', // needs mock
 		},
 		frax3crv: {
 			currency: 'usd',
-			pool: '0xF0cCAbb34899652eFea9751616fd94A73E4bD501',
+			pool: '0xbebc44782c7db0a1a60cb6fe97d0b483032ff1c7',
 			token: '0x64C1d8cd206aF84f54eadb1cbD1E4c3643875Ee8',
 			gauge: '0xCD7C79e7A0678af31a3b5b0aFc5dd89aB734feD8',
 			convexRewards: '0xFDAc13A5f54A7f1784FE2d1AA6fA30ee5C92fcb8', // needs mock
@@ -91,7 +91,7 @@ const kovan: EthereumConfig = {
 			url: 'https://curve.fi/mim/deposit',
 			tokenPoolContract: '0xa2373Ffc62cA0CA01aE9edfFC19762E3fC75F99C',
 			token: 'MIM3CRV',
-			tokenContract: '0x7D91365bC65CF9caDC6aE1d86d35f5add750Fe37',
+			tokenContract: '0xa24a13f1ded8e8ddd30472fc8ebb3b6fee5987b9',
 			vault: '0x631EB675F927ba765b6C6c02df0651144B9858e5',
 			vaultToken: 'CV:USD',
 			vaultTokenContract: '0x3cF8802D91C0560b54A5CeEC6da108B7b2946BdB',
@@ -156,7 +156,7 @@ const kovan: EthereumConfig = {
 		xYaxStaking: '0xc5598a5FE5aFFb55308ac06593Af31784606de4C',
 		yAxisMetaVault: '0x5cDf227131880CFd6947A47cC903b40207834846',
 		LPMatch: '0xccE4B9Af75261942dBD4A6E3208bC88940040f68',
-		alchemist: '0x986aaa537b8cc170761FDAC6aC4fc7F9d8a20A8C',
+		alchemist: '0x101Df32d4ec12069B7487940E1E1696d8918b8CE',
 	},
 	rewards: {
 		MetaVault: '0xFDAc13A5f54A7f1784FE2d1AA6fA30ee5C92fcb8',
