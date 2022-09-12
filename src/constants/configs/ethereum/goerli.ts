@@ -10,7 +10,7 @@ const currencies: EthereumCurrenciesConfig = {
 		crv: '0xDB0E1fe102Be9c0fD355100271283dF18bA4797F',
 		wbtc: '0xf9Bba2B6CD5ABA1F8023AA9B8C5b50Ef4666157c',
 		link: '0xb364c348CC4B9600c2b2C0C19f7425D4f469594c',
-		mim: '0xa770697ceca9af6584aa59dd9f226eaf6cd0c2dc',
+		mim: '0xa770697cecA9Af6584aA59DD9F226eaF6Cd0c2dc',
 		cvx: '0x3631944Bd99a426d628070d91CDC559ae4276a6d',
 		yax: '0xf07C80993E9b27ae811b059E0FABD7539F8a1197',
 		usdc: '0x2cae85b5aD02764ee3e804968A0fFe70c768917f',
@@ -23,7 +23,7 @@ const currencies: EthereumCurrenciesConfig = {
 		frax: '0x64C1d8cd206aF84f54eadb1cbD1E4c3643875Ee8', // needs mock
 		nume: '0x34769d3e122c93547836addd3eb298035d68f1c3',
 		usdy: '0x684307a89d59c55e873642038ac4467ac969fac1',
-		mim3crv: '0xa24a13f1ded8e8ddd30472fc8ebb3b6fee5987b9',
+		mim3crv: '0x6dB53Ed036135f2c299d54353b2ae7e748a85628',
 	},
 	ERC677: {
 		yaxis: '0xDE78295b8a50413f5a6faBd1f4921E8449d2433C',
@@ -156,7 +156,7 @@ const goerli: EthereumConfig = {
 		xYaxStaking: '0xc5598a5FE5aFFb55308ac06593Af31784606de4C',
 		yAxisMetaVault: '0x5cDf227131880CFd6947A47cC903b40207834846',
 		LPMatch: '0x53Cc37359a88A2478426b9Fb9F8cc70e01D96E4e',
-		alchemist: '0x101Df32d4ec12069B7487940E1E1696d8918b8CE',
+		alchemist: '0xe3858B3DF6Ec008ef087bDa27E95dC43bA6488f4',
 	},
 	rewards: {
 		MetaVault: '0xFDAc13A5f54A7f1784FE2d1AA6fA30ee5C92fcb8',
