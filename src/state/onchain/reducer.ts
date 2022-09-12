@@ -35,6 +35,7 @@ export interface MulticallState {
 const initialState: MulticallState = {
 	callResults: {
 		1: {},
+		5: {},
 		42: {},
 		43113: {},
 		//43114: {},

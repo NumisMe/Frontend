@@ -36,11 +36,12 @@ export function getLibrary(provider: any) {
 	return library
 }
 
-export const SUPPORTED_NETWORKS = [1, 42]
+export const SUPPORTED_NETWORKS = [1, 5, 42]
 
-export const NETWORK_NAMES = { 1: 'mainnet', 42: 'kovan' }
+export const NETWORK_NAMES = { 1: 'mainnet', 5: 'goerli', 42: 'kovan' }
 export const FRIENDLY_NETWORK_NAMES = {
 	1: 'Ethereum Mainnet',
+	5: 'Goerli Test Network',
 	42: 'Kovan Test Network',
 	43114: 'Avalanche Mainnet',
 }
@@ -61,7 +62,7 @@ export const injected = new InjectedConnector({
 })
 
 export const walletconnect = new WalletConnectConnector({
-	rpc: { 1: NETWORK_URLS[1], 42: NETWORK_URLS[42] }, // Wallet Connect only supports network 1
+	rpc: { 1: NETWORK_URLS[1], 5: NETWORK_URLS[5], 42: NETWORK_URLS[42] }, // Wallet Connect only supports network 1
 	bridge: 'https://bridge.walletconnect.org',
 	qrcode: true,
 })
@@ -93,7 +94,7 @@ export const trezor = new TrezorConnector({
 
 export const portis = new PortisConnector({
 	dAppId: process.env.REACT_APP_PORTIS_ID as string,
-	networks: [1, 42],
+	networks: [1, 5, 42],
 })
 
 export const lattice = new LatticeConnector({

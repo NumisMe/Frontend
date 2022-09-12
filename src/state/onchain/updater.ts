@@ -166,7 +166,10 @@ export default function Updater(): null {
 		if (outdatedCallKeys.length === 0) return
 		const calls = outdatedCallKeys.map((key) => parseCallKey(key))
 
-		const chunkedCalls = chunkArray(calls, CALL_CHUNK_SIZE)
+		const chunkedCalls = chunkArray(
+			calls,
+			chainId == 5 ? 10 : CALL_CHUNK_SIZE,
+		)
 
 		if (cancellations.current?.blockNumber !== latestBlockNumber) {
 			cancellations.current?.cancellations?.forEach((c) => c())

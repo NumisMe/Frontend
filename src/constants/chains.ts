@@ -6,6 +6,7 @@ import avalancheLogo from '../assets/img/currencies/avax.svg'
  */
 export enum ChainId {
 	ETHEREUM_MAINNET = 1,
+	ETHEREUM_GOERLI = 5,
 	ETHEREUM_KOVAN = 42,
 
 	AVALANCHE_FUJI = 43113,
@@ -13,8 +14,10 @@ export enum ChainId {
 }
 
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
-const RPC_URL_1 = "https://mainnet.infura.io/v3/0d73cc5bbe184146957a9d00764db99f";//process.env.REACT_APP_RPC_URL_1
-const RPC_URL_42 = "https://kovan.infura.io/v3/0d73cc5bbe184146957a9d00764db99f";//process.env.REACT_APP_RPC_URL_42
+const RPC_URL_1 =
+	'https://mainnet.infura.io/v3/0d73cc5bbe184146957a9d00764db99f' //process.env.REACT_APP_RPC_URL_1
+const RPC_URL_5 = 'https://goerli.infura.io/v3/0d73cc5bbe184146957a9d00764db99f' //process.env.REACT_APP_RPC_URL_5
+const RPC_URL_42 = 'https://kovan.infura.io/v3/0d73cc5bbe184146957a9d00764db99f' //process.env.REACT_APP_RPC_URL_42
 if (
 	(typeof RPC_URL_1 === 'undefined' || typeof RPC_URL_42 === 'undefined') &&
 	typeof INFURA_KEY === 'undefined'
@@ -38,6 +41,7 @@ export const ALL_SUPPORTED_CHAIN_IDS: ChainId[] = Object.entries(ChainId)
 export type L1_CHAIN = 'avalanche' | 'ethereum'
 export const L1_CHAIN_IDS = [
 	ChainId.ETHEREUM_MAINNET,
+	ChainId.ETHEREUM_GOERLI,
 	ChainId.ETHEREUM_KOVAN,
 	//ChainId.AVALANCHE_MAINNET,
 	ChainId.AVALANCHE_FUJI,
@@ -60,6 +64,8 @@ export type SupportedL2ChainId = typeof L2_CHAIN_IDS[number]
 export const NETWORK_URLS: { [key in ChainId]: string } = {
 	[ChainId.ETHEREUM_MAINNET]:
 		RPC_URL_1 || `https://mainnet.infura.io/v3/${INFURA_KEY}`,
+	[ChainId.ETHEREUM_GOERLI]:
+		RPC_URL_1 || `https://goerli.infura.io/v3/${INFURA_KEY}`,
 	[ChainId.ETHEREUM_KOVAN]:
 		RPC_URL_42 || `https://kovan.infura.io/v3/${INFURA_KEY}`,
 	//[ChainId.AVALANCHE_MAINNET]: 'https://api.avax.network/ext/bc/C/rpc',
@@ -135,6 +141,26 @@ export const CHAIN_INFO: ChainInfoMap = {
 		},
 		yaxisUrl:
 			'https://app.uniswap.org/#/swap?outputCurrency=0x34769D3e122C93547836AdDD3eb298035D68F1C3',
+	},
+	[ChainId.ETHEREUM_GOERLI]: {
+		chainId: ChainId.ETHEREUM_GOERLI,
+		blockchain: 'ethereum',
+		networkType: NetworkType.L1,
+		blocktime: 15_000,
+		docs: '',
+		explorer: 'https://goerli.etherscan.io',
+		infoLink: '',
+		label: 'Goerli',
+		logoUrl: ethereumLogoUrl,
+		addNetworkInfo: {
+			nativeCurrency: {
+				name: 'Goerli Ether',
+				symbol: 'gETH',
+				decimals: 18,
+			},
+			rpcUrl: NETWORK_URLS[ChainId.ETHEREUM_GOERLI],
+		},
+		yaxisUrl: '',
 	},
 	[ChainId.ETHEREUM_KOVAN]: {
 		chainId: ChainId.ETHEREUM_KOVAN,

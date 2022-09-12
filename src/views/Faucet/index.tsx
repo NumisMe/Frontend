@@ -20,7 +20,7 @@ const Faucet: React.FC = () => {
 	const body = useMemo(() => {
 		if (!chainId) return <Row gutter={16}>Connect to a wallet</Row>
 
-		if (chainId !== 42) return <Navigate to="/" />
+		if (chainId !== 42 && chainId !== 5) return <Navigate to="/" />
 
 		if (!contracts) return null
 

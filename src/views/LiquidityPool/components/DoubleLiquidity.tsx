@@ -14,6 +14,7 @@ import useTranslation from '../../../hooks/useTranslation'
 import { LiquidityPool } from '../../../constants/type'
 import useWeb3Provider from '../../../hooks/useWeb3Provider'
 import { useContracts } from '../../../contexts/Contracts'
+import { useNativeBalances } from '../../../state/wallet/hooks'
 
 const { Text } = Typography
 
@@ -31,6 +32,7 @@ const TableHeader = (props: any) => (
 
 const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 	const translate = useTranslation()
+	const balances = useNativeBalances()
 	const { contracts } = useContracts()
 	const { account } = useWeb3Provider()
 	const [nativeBalance, setNativeBalance] = useState<BigNumber>(
@@ -125,7 +127,6 @@ const DoubleLiquidity: React.FC<Props> = ({ pool }) => {
 		const { data } = await axios.get(
 			'https://lpmatch.herokuapp.com/currentPrice',
 		)
-		console.log(data)
 		await addLiquidity({
 			amount: new BigNumber(depositAmount)
 				.multipliedBy(10 ** currency.decimals)
