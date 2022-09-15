@@ -156,7 +156,7 @@ const goerli: EthereumConfig = {
 		xYaxStaking: '0xc5598a5FE5aFFb55308ac06593Af31784606de4C',
 		yAxisMetaVault: '0x5cDf227131880CFd6947A47cC903b40207834846',
 		LPMatch: '0x53Cc37359a88A2478426b9Fb9F8cc70e01D96E4e',
-		alchemist: '0xe3858B3DF6Ec008ef087bDa27E95dC43bA6488f4',
+		alchemist: '0xC9fbEba947D01Ac62F892a60Fbd58D0Df2E9DC8e',
 	},
 	rewards: {
 		MetaVault: '0xFDAc13A5f54A7f1784FE2d1AA6fA30ee5C92fcb8',

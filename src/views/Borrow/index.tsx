@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Row, Col } from 'antd'
 import {
 	Deposit,
+	Faucet,
 	Borrow,
 	Repay,
 	Withdraw,
@@ -12,10 +13,12 @@ import {
 import Page from '../../components/Page/Page'
 import useTranslation from '../../hooks/useTranslation'
 import { useAlchemist } from '../../state/wallet/hooks'
+import useWeb3Provider from '../../hooks/useWeb3Provider'
 
 const Alchemix: React.FC = () => {
 	const translate = useTranslation()
 	const { toBorrow } = useAlchemist()
+	const { chainId } = useWeb3Provider()
 
 	return (
 		<Page
@@ -27,6 +30,7 @@ const Alchemix: React.FC = () => {
 		>
 			<Row gutter={16}>
 				<Col xs={24} sm={24} md={24} lg={16}>
+					{chainId == 5 && <Faucet />}
 					<Deposit />
 					<Borrow />
 					<Repay />

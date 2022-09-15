@@ -1,3 +1,4 @@
+export { Faucet } from './Faucet'
 export { Deposit } from './Deposit'
 export { Borrow } from './Borrow'
 export { Repay } from './Repay'
