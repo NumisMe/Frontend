@@ -5,7 +5,6 @@ import Typography from '../../../components/Typography'
 import Button from '../../../components/Button'
 import Divider from '../../../components/Divider'
 import Input from '../../../components/Input'
-import Card from '../../../components/Card'
 import { useContracts } from '../../../contexts/Contracts'
 import useContractWrite from '../../../hooks/useContractWrite'
 import { useAllTokenBalances } from '../../../state/wallet/hooks'
@@ -28,7 +27,7 @@ const Deposit: React.FC = () => {
 	const [amount, setAmount] = useState('0')
 
 	return (
-		<Card title="Deposit Collateral">
+		<div>
 			<div style={{ margin: '20px' }}>
 				<Row>
 					<StyledText>
@@ -112,7 +111,7 @@ const Deposit: React.FC = () => {
 					</Button>
 				</StyledDiv>
 			</ApprovalCover>
-		</Card>
+		</div>
 	)
 }
 

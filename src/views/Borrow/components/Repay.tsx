@@ -6,7 +6,6 @@ import Typography from '../../../components/Typography'
 import Button from '../../../components/Button'
 import Divider from '../../../components/Divider'
 import Input from '../../../components/Input'
-import Card from '../../../components/Card'
 import ApprovalCover from '../../../components/ApprovalCover'
 import { useAlchemist } from '../../../state/wallet/hooks'
 import useContractWrite from '../../../hooks/useContractWrite'
@@ -29,7 +28,7 @@ const Repay: React.FC = () => {
 	const [usdyAmount, setUsdyAmount] = useState('0')
 
 	return (
-		<Card title="Repay Loan (Early Repayment)">
+		<div>
 			<div style={{ margin: '20px' }}>
 				<Row>
 					<StyledText>
@@ -122,7 +121,7 @@ const Repay: React.FC = () => {
 					</Button>
 				</StyledDiv>
 			</ApprovalCover>
-		</Card>
+		</div>
 	)
 }
 

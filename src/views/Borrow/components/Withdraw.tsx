@@ -5,7 +5,6 @@ import Typography from '../../../components/Typography'
 import Button from '../../../components/Button'
 import Divider from '../../../components/Divider'
 import Input from '../../../components/Input'
-import Card from '../../../components/Card'
 import useContractWrite from '../../../hooks/useContractWrite'
 import { useAlchemist } from '../../../state/wallet/hooks'
 import BigNumber from 'bignumber.js'
@@ -25,7 +24,7 @@ const Withdraw: React.FC = () => {
 	const [amount, setAmount] = useState('0')
 
 	return (
-		<Card title="Withdraw Collateral">
+		<div>
 			<div style={{ margin: '20px' }}>
 				<Row>
 					<StyledText>
@@ -80,7 +79,7 @@ const Withdraw: React.FC = () => {
 					{translate('Withdraw')}
 				</Button>
 			</StyledDiv>
-		</Card>
+		</div>
 	)
 }
 
