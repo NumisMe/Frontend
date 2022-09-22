@@ -22,7 +22,7 @@ const currencies: EthereumCurrenciesConfig = {
 		spell: '0xc968d40Abc8a0c365769309982D783825510641F', // needs mock
 		frax: '0x64C1d8cd206aF84f54eadb1cbD1E4c3643875Ee8', // needs mock
 		nume: '0x34769d3e122c93547836addd3eb298035d68f1c3',
-		usdy: '0x684307a89d59c55e873642038ac4467ac969fac1',
+		usdy: '0xf6ff2300c4c760c6dbc8eF7C30930C60faaa57a0',
 		mim3crv: '0x6dB53Ed036135f2c299d54353b2ae7e748a85628',
 	},
 	ERC677: {

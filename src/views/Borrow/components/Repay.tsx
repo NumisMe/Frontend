@@ -48,9 +48,7 @@ const Repay: React.FC = () => {
 				<StyledDiv>
 					<Row style={{ marginBottom: '20px' }}>
 						<Col span={8}>
-							<StyledText>
-								MIMcrv {translate('Amount')}
-							</StyledText>
+							<StyledText>MIM {translate('Amount')}</StyledText>
 						</Col>
 						<Col span={16}>
 							<Row>
@@ -63,7 +61,7 @@ const Repay: React.FC = () => {
 									min={'0'}
 									placeholder="0"
 									disabled={debt?.isZero()}
-									suffix={'USDY'}
+									suffix={'MIM'}
 									onClickMax={() =>
 										setMimAmount(debt?.toString())
 									}
