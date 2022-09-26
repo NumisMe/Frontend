@@ -13,6 +13,9 @@ import APYCalculator from '../../../components/APYCalculator'
 import BigNumber from 'bignumber.js'
 import { InfoCircleOutlined } from '@ant-design/icons'
 import useTranslation from '../../../hooks/useTranslation'
+import Col from 'antd/es/grid/col'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const { Text } = Typography
 
@@ -57,7 +60,20 @@ const LiquidityOverviewCard: React.FC<LiquidityOverviewCardProps> = ({
 
 	const { yaxisAprPercent } = useAPY(pool?.rewards)
 	const { poolShare } = useWalletLP(pool.name)
+	const [totalReward, setTotalReward] = useState(0) 
 
+	useEffect(()=>{
+		axios
+		.get('https://numisme-bots.herokuapp.com/')
+		.then(res => {
+			console.log(res.data);
+			setTotalReward(parseFloat(res.data));
+		})
+		.catch(error => {
+			console.error(error);
+		});
+	}, []);
+	
 	return (
 		<Card title={translate('Overview')} icon="verticalbars">
 			{pool?.legacy ? (
@@ -163,6 +179,22 @@ const LiquidityOverviewCard: React.FC<LiquidityOverviewCardProps> = ({
 				balance={totalUSDBalance}
 				loading={false}
 				page={'lp'}
+			/>
+			<CardRow
+				main={
+					'Total WETH Distributed'
+				}
+				secondary={
+					<Row gutter={3}>
+						<Col>
+							<Value
+								value={totalReward.toFixed(3)}
+								decimals={3}
+								suffix={" WETH"}
+							/>
+						</Col>
+					</Row>
+				}
 				last
 			/>
 		</Card>

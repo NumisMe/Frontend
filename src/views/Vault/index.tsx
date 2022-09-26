@@ -17,6 +17,7 @@ import useTranslation from '../../hooks/useTranslation'
 import { useContracts } from '../../contexts/Contracts'
 import { TVaults } from '../../constants/type'
 import { VaultC } from '../../constants/contracts'
+import Rewards from './components/Rewards'
 
 const Vault: React.FC = () => {
 	const translate = useTranslation()
@@ -64,6 +65,7 @@ const Vault: React.FC = () => {
 							balanceLoading={false}
 						/>
 						<VaultStatsCard />
+						<Rewards />
 						{/* TODO: Rework and re-enable */}
 						{/* <RecentTransactionsCard /> */}
 					</StyledCol>

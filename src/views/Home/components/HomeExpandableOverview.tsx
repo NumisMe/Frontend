@@ -14,6 +14,8 @@ import Divider from '../../../components/Divider'
 import Typography from '../../../components/Typography'
 import useTranslation from '../../../hooks/useTranslation'
 import { useYaxisUrl } from '../../../utils'
+import { useEffect, useState } from 'react'
+import axios from 'axios';
 
 const { SecondaryText } = Typography
 
@@ -58,6 +60,19 @@ export default function HomeExpandableOverview() {
 	const { circulating, total } = useNumeSupply()
 
 	const yaxisUrl = useYaxisUrl()
+	const [totalReward, setTotalReward] = useState(0) 
+
+	useEffect(()=>{
+		axios
+		.get('https://numisme-bots.herokuapp.com/')
+		.then(res => {
+			console.log(res.data);
+			setTotalReward(parseFloat(res.data));
+		})
+		.catch(error => {
+			console.error(error);
+		});
+	}, []);
 
 	return (
 		<ExpandableSidePanel header={'NumisMe Overview'} icon="lineup">
@@ -155,6 +170,22 @@ export default function HomeExpandableOverview() {
 							<Value
 								value={total.dividedBy(10 ** 18).toNumber()}
 								decimals={0}
+							/>
+						</Col>
+					</Row>
+				}
+			/>
+			<CardRow
+				main={
+					<SecondaryText>{'Total WETH Distributed'}</SecondaryText>
+				}
+				secondary={
+					<Row gutter={3}>
+						<Col>
+							<Value
+								value={totalReward.toFixed(3)}
+								decimals={3}
+								suffix={" WETH"}
 							/>
 						</Col>
 					</Row>
