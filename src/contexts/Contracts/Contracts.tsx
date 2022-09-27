@@ -32,6 +32,7 @@ const ContractProvider = ({ children }) => {
 		if (ALL_SUPPORTED_CHAIN_IDS.includes(chainId))
 			setChain(chainId as ChainId)
 		else {
+			if (chainId === 5) setChain(5)
 			// Kovan switches to mainnet fallback
 			if (chainId === 42) setChain(1)
 		}

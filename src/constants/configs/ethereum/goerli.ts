@@ -21,7 +21,7 @@ const currencies: EthereumCurrenciesConfig = {
 		mvlt: '0x5cDf227131880CFd6947A47cC903b40207834846',
 		spell: '0xc968d40Abc8a0c365769309982D783825510641F', // needs mock
 		frax: '0x64C1d8cd206aF84f54eadb1cbD1E4c3643875Ee8', // needs mock
-		nume: '0x34769d3e122c93547836addd3eb298035d68f1c3',
+		nume: '0x1731fe39EE77db5aB75484Ac6590C016E5801058',
 		usdy: '0xf6ff2300c4c760c6dbc8eF7C30930C60faaa57a0',
 		mim3crv: '0x6dB53Ed036135f2c299d54353b2ae7e748a85628',
 	},
@@ -95,7 +95,7 @@ const goerli: EthereumConfig = {
 			vault: '0x631EB675F927ba765b6C6c02df0651144B9858e5',
 			vaultToken: 'CV:USD',
 			vaultTokenContract: '0x3cF8802D91C0560b54A5CeEC6da108B7b2946BdB',
-			gauge: '0xEc8E054A174B38edC5894187A55AE2D47c1f04eD',
+			gauge: '0x4DaB2E1b59dc3707EbdB8A4cD6f74Ef9FcF6cDbd',
 		},
 		eth: {
 			url: 'https://curve.fi/factory/38/deposit',
@@ -105,7 +105,7 @@ const goerli: EthereumConfig = {
 			vault: '0x0596235bF475e1c16247D5E1f2C4e5B3bbb9279c',
 			vaultToken: 'CV:ETH',
 			vaultTokenContract: '0x56b27181fa92DFC5909F1B537f0D5A5929Fbc765',
-			gauge: '0xCD7C79e7A0678af31a3b5b0aFc5dd89aB734feD8',
+			gauge: '0x9c680F785Cd52d08E3bD31565b3aAA712a4badf8',
 		},
 		cvx: {
 			url: 'https://curve.fi/cvxeth/',
@@ -115,7 +115,7 @@ const goerli: EthereumConfig = {
 			vault: '0xB31dfBF39Ab56de5e847360018e48E11bb88Ed4e',
 			vaultToken: 'CV:CVX',
 			vaultTokenContract: '0xa71d40f9ebAaff20633489cD77E673c558dF487e',
-			gauge: '0x88205736AFE9A5F49f6108b2A84892656194bE27',
+			gauge: '0x06a7a2388D248f107fa13400C9533fD25DF47a6B',
 		},
 		tricrypto: {
 			url: 'https://curve.fi/tricrypto2/',
@@ -125,7 +125,7 @@ const goerli: EthereumConfig = {
 			vault: '0x73f05eA672299d2ff3D1FdFc662c5b09031950f3',
 			vaultToken: 'CV:TRICRYPTO',
 			vaultTokenContract: '0xa4eC591D88f52bDe13CFff81d9918e4bCD6cea65',
-			gauge: '0x10BF38631ef414CE08D09ed33A7ABA9Ad58C7818',
+			gauge: '0x5A204c7717803D2762408B084454477c5D90db09',
 		},
 		frax: {
 			url: 'https://curve.fi/frax',
@@ -135,7 +135,7 @@ const goerli: EthereumConfig = {
 			vault: '0xdd507197D317ac2D17028d642bf6B875Ad9673fC',
 			vaultToken: 'CV:FRAX',
 			vaultTokenContract: '0x05d76F1F6a7528B455d3Bfb850B0eDFe2BF05878',
-			gauge: '0xF7A88a99976A478D66FE59cb3c6E90c45E8F185B',
+			gauge: '0xfc07F5D82Ac970A77222Fa5C54C1E098ef1c4441',
 		},
 	},
 	internal: {
@@ -146,8 +146,8 @@ const goerli: EthereumConfig = {
 		minter: '0x8430b8840cFE3d5a6fE61D010d5B2ec3B32B776B',
 		minterWrapper: '0xdf87daD061CD6460D18A171BCB9d50dd0F75Bcd3',
 		stableSwap3PoolConverter: '0x1A17D5dbBcdBe9E95c3110b2CAc35312Ed82909e',
-		votingEscrow: '0x2721D6A92d52b655C6bdaC5648dC89483F6400E5',
-		gaugeController: '0x6EAF4cEd8319881F7F1929A9b3f543F68e6238C2',
+		votingEscrow: '0x706256BdB43295983B97927B3a1F43F9D0D66b29',
+		gaugeController: '0xc6c7A5659Bd02E7b797A462424d1B066f3F1c055',
 		feeDistributor: '0x2e525f795FFf8E04df74F4F93DDC2Cd3990fF0C3',
 		// Legacy
 		merkleDistributor: '0x51A8F76b848E478e08B771DE55e5e17370DE1D25',

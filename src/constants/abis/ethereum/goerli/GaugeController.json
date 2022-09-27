@@ -818,5 +818,23 @@
 		"stateMutability": "view",
 		"type": "function",
 		"gas": 2400
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address[]",
+				"name": "_gauges",
+				"type": "address[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "_amounts",
+				"type": "uint256[]"
+			}
+		],
+		"name": "vote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	}
 ]

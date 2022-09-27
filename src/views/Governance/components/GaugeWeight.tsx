@@ -45,7 +45,7 @@ const GaugeWeight: React.FC<{ vaults: readonly string[] }> = ({ vaults }) => {
 
 	const { call, loading } = useContractWrite({
 		contractName: 'internal.gaugeController',
-		method: 'vote_for_gauge_weights',
+		method: chainInfo.chainId === 5 ? 'vote' : 'vote_for_gauge_weights',
 		description: `vote for gauge weights`,
 	})
 
@@ -270,6 +270,19 @@ const GaugeWeight: React.FC<{ vaults: readonly string[] }> = ({ vaults }) => {
 						loading={loading}
 						disabled={disabled || !hasChange}
 						onClick={() => {
+							if (chainInfo.chainId === 5) {
+								const gauges = vaults.map(
+									(vault) =>
+										contracts.vaults[vault].gauge.address,
+								)
+								call({
+									args: [
+										gauges,
+										weights.map((weight) => weight * 100),
+									],
+								})
+								return
+							}
 							weights.forEach((weight, i) => {
 								const hasChange =
 									weight * 100 !==
