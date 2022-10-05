@@ -24,7 +24,7 @@ export default function Rewards() {
     
 	return (
 		<ExpandableSidePanel
-			header={'Total Rewards Distributed'}
+			header={'Total ETH Distributed'}
 			icon="vault"
 		>
 			<CardRow
