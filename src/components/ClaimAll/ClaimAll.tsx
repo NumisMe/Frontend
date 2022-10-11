@@ -3,6 +3,7 @@ import { Row, Col } from 'antd'
 import CardRow from '../CardRow'
 import Value from '../Value'
 import Button from '../Button'
+import Tooltip from '../../components/Tooltip'
 import { useContracts } from '../../contexts/Contracts'
 import useContractWrite from '../../hooks/useContractWrite'
 import { useSingleCallResultByName } from '../../state/onchain/hooks'
@@ -83,71 +84,80 @@ const ClaimAll: React.FC = () => {
 			rightContent={
 				<Row justify="center">
 					<Col xs={14} sm={14} md={14}>
-						<Button
-							disabled={
-								loadingContracts ||
-								loadingClaimableMetaVault ||
-								loadingClaimableLegacyYAXIS ||
-								loadingUserGauges ||
-								new BigNumber(claimable?.toString() || 0)
-									.plus(legacyClaimable)
-									.isZero()
-							}
-							onClick={() => {
-								if (claimable.gt(0)) {
-									const gaugeAddresses =
-										Object.entries(gauges)
-									const chunks = chunk(gaugeAddresses, 8)
-									chunks.forEach((chunk) => {
-										const addressesToClaim = chunk.reduce(
-											(addresses, [name, claimable]) => {
-												if (claimable.gt(0))
-													addresses.push(
-														contracts.vaults[name]
-															.gauge.address,
-													)
-												return addresses
-											},
-											[],
-										)
-
-										const addressesToClaimFilled = [
-											...addressesToClaim,
-											...Array(
-												8 - addressesToClaim.length,
-											).fill(
-												'0x0000000000000000000000000000000000000000',
-											),
-										]
-
-										handleClaimMany({
-											args: [addressesToClaimFilled],
-										})
-									})
+						<Tooltip title="Don't forget! STAKE NUME to EARN ETH!">
+							<Button
+								disabled={
+									loadingContracts ||
+									loadingClaimableMetaVault ||
+									loadingClaimableLegacyYAXIS ||
+									loadingUserGauges ||
+									new BigNumber(claimable?.toString() || 0)
+										.plus(legacyClaimable)
+										.isZero()
 								}
-								if (
-									new BigNumber(
-										claimableMetaVault?.toString() || 0,
-									).gt(0)
-								)
-									handleClaimMetaVault()
+								onClick={() => {
+									if (claimable.gt(0)) {
+										const gaugeAddresses =
+											Object.entries(gauges)
+										const chunks = chunk(gaugeAddresses, 8)
+										chunks.forEach((chunk) => {
+											const addressesToClaim =
+												chunk.reduce(
+													(
+														addresses,
+														[name, claimable],
+													) => {
+														if (claimable.gt(0))
+															addresses.push(
+																contracts
+																	.vaults[
+																	name
+																].gauge.address,
+															)
+														return addresses
+													},
+													[],
+												)
 
-								if (
-									new BigNumber(
-										claimableLegacyYAXIS?.toString() || 0,
-									).gt(0)
-								)
-									handleClaimLegacyYAXIS()
-							}}
-							loading={
-								loadingClaimLegacyYAXIS ||
-								loadingClaimMetaVault ||
-								loadingClaimMany
-							}
-							height={'40px'}
-						>
-							{translate('Claim All')}
-						</Button>
+											const addressesToClaimFilled = [
+												...addressesToClaim,
+												...Array(
+													8 - addressesToClaim.length,
+												).fill(
+													'0x0000000000000000000000000000000000000000',
+												),
+											]
+
+											handleClaimMany({
+												args: [addressesToClaimFilled],
+											})
+										})
+									}
+									if (
+										new BigNumber(
+											claimableMetaVault?.toString() || 0,
+										).gt(0)
+									)
+										handleClaimMetaVault()
+
+									if (
+										new BigNumber(
+											claimableLegacyYAXIS?.toString() ||
+												0,
+										).gt(0)
+									)
+										handleClaimLegacyYAXIS()
+								}}
+								loading={
+									loadingClaimLegacyYAXIS ||
+									loadingClaimMetaVault ||
+									loadingClaimMany
+								}
+								height={'40px'}
+							>
+								{translate('Claim All')}
+							</Button>
+						</Tooltip>
 					</Col>
 				</Row>
 			}
