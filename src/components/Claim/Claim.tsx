@@ -2,6 +2,7 @@ import { Row, Col } from 'antd'
 import CardRow from '../../components/CardRow'
 import Value from '../../components/Value'
 import Button from '../../components/Button'
+import Tooltip from '../../components/Tooltip'
 import useContractWrite from '../../hooks/useContractWrite'
 import { useSingleCallResultByName } from '../../state/onchain/hooks'
 import { getBalanceNumber } from '../../utils/formatBalance'
@@ -50,7 +51,8 @@ const Claim: React.FC<Props> = ({ vault, rewardsContract, last }) => {
 			vault ? `vaults.${vault}.gauge` : `rewards.${rewardsContract}`,
 			vault
 				? 'claimable_tokens'
-				: blockchain === 'ethereum' && rewardsContract != 'Uniswap NUME/ETH'
+				: blockchain === 'ethereum' &&
+				  rewardsContract != 'Uniswap NUME/ETH'
 				? 'earned'
 				: 'pending(address)',
 			[account],
@@ -71,28 +73,32 @@ const Claim: React.FC<Props> = ({ vault, rewardsContract, last }) => {
 			rightContent={
 				<Row justify="center">
 					<Col xs={14} sm={14} md={14}>
-						<Button
-							disabled={
-								loadingClaimable ||
-								new BigNumber(
-									claimable?.toString() || 0,
-								).isZero()
-							}
-							onClick={() => {
-								if (rewardsContract) handleRewardsClaim()
-								if (vault)
-									handleGaugeClaim({
-										args: [
-											contracts?.vaults[vault].gauge
-												.address,
-										],
-									})
-							}}
-							loading={loadingRewardsClaim || loadingGaugeClaim}
-							height={'40px'}
-						>
-							{translate('Claim')}
-						</Button>
+						<Tooltip title="Don't forget! STAKE NUME to EARN ETH!">
+							<Button
+								disabled={
+									loadingClaimable ||
+									new BigNumber(
+										claimable?.toString() || 0,
+									).isZero()
+								}
+								onClick={() => {
+									if (rewardsContract) handleRewardsClaim()
+									if (vault)
+										handleGaugeClaim({
+											args: [
+												contracts?.vaults[vault].gauge
+													.address,
+											],
+										})
+								}}
+								loading={
+									loadingRewardsClaim || loadingGaugeClaim
+								}
+								height={'40px'}
+							>
+								{translate('Claim')}
+							</Button>
+						</Tooltip>
 					</Col>
 				</Row>
 			}
