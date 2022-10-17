@@ -18,6 +18,7 @@ import BigNumber from 'bignumber.js'
 import moment from 'moment'
 import useTranslation from '../../../hooks/useTranslation'
 import useWeb3Provider from '../../../hooks/useWeb3Provider'
+import { ethers } from 'ethers'
 
 const { Text } = Typography
 
@@ -64,6 +65,11 @@ const CreateLock: React.FC = () => {
 				: vp.dividedBy(votingEscrow.totalSupply.plus(vp)),
 		[vp, votingEscrow],
 	)
+
+	function addZeros(x) {
+		return ethers.utils.parseUnits(x.toString(), "ether");
+	}
+
 	return (
 		<StyledDiv>
 			<Row style={{ marginBottom: '20px' }}>
@@ -162,9 +168,7 @@ const CreateLock: React.FC = () => {
 				onClick={() =>
 					call({
 						args: [
-							new BigNumber(amount)
-								.multipliedBy(10 ** 18)
-								.toString(),
+							addZeros(amount),
 							Math.floor(nextWeekStart / 1000) + length,
 						],
 					})
@@ -239,6 +243,10 @@ const ExtendLock: React.FC<ExtendLockProps> = ({ data: { end, locked } }) => {
 			),
 		[vp, votingEscrow],
 	)
+
+	function addZeros(x) {
+		return ethers.utils.parseUnits(x.toString(), "ether");
+	}
 
 	return (
 		<>
@@ -396,9 +404,7 @@ const ExtendLock: React.FC<ExtendLockProps> = ({ data: { end, locked } }) => {
 						if (new BigNumber(amount).gt(0))
 							callIncreaseAmount({
 								args: [
-									new BigNumber(amount)
-										.multipliedBy(10 ** 18)
-										.toString(),
+									addZeros(amount),
 								],
 							})
 					}}
