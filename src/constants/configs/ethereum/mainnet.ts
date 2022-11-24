@@ -106,7 +106,7 @@ const mainnet: EthereumConfig = {
 		stableSwap3PoolConverter: '0x2eab685d85AA52E4d8b6699Ba5aAC3b0c3992C3B',
 		votingEscrow: '0xa770697cecA9Af6584aA59DD9F226eaF6Cd0c2dc',
 		gaugeController: '0x65c83006eBda35229FC61AE5cba1048F83eA5ebF',
-		feeDistributor: '0xcdF55d76f7de152b3E5dfd220D9214A2C1B5FdF6',
+		feeDistributor: '0xdA3A068428A2a04d21dD628A4479f95bc98b6EAB',
 		// Legacy
 		merkleDistributor: '0xd0c9432625a181c823b3e63d5e6656f87231ae96',
 		swap: '0xCdF398537adbF8617a8401B14DCEe7F67CF8c64b',
