@@ -169,7 +169,7 @@ export function useVaultRewards(
 			.multipliedBy(86400)
 			.multipliedBy(365)
 
-		const APR = yaxisPerYear.multipliedBy(prices?.yaxis || 0)
+		const APR = yaxisPerYear.multipliedBy(prices?.nume || 0)
 
 		return {
 			workingSupply: new BigNumber(balance?.result?.toString() || 0),
