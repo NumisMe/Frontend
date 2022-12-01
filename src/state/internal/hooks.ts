@@ -664,7 +664,7 @@ const useAvalancheRewardAPR = (
 	)
 
 	const {
-		prices: { yaxis },
+		prices: { nume },
 	} = usePrices()
 
 	const pool = useMemo(
@@ -701,7 +701,7 @@ const useAvalancheRewardAPR = (
 			.dividedBy(10 ** 18)
 			.multipliedBy(31_536_000)
 
-		const usdEmissionsPerYear = yaxisPerYear.multipliedBy(yaxis)
+		const usdEmissionsPerYear = yaxisPerYear.multipliedBy(nume)
 
 		const apr = usdEmissionsPerYear.dividedBy(tvl)
 
@@ -709,7 +709,7 @@ const useAvalancheRewardAPR = (
 			rewardsPerBlock: new BigNumber(0),
 			apr: apr.multipliedBy(100),
 		}
-	}, [yaxis, results, lp])
+	}, [nume, results, lp])
 }
 
 export function useLiquidityPools(): Record<
@@ -759,7 +759,7 @@ export function useTVL() {
 
 		const governanceTvl = new BigNumber(veSupply?.result?.toString() || 0)
 			.dividedBy(10 ** 18)
-			.multipliedBy(prices.yaxis)
+			.multipliedBy(prices.nume)
 
 		const stakingTvl = new BigNumber(result?.toString() || 0)
 			.div(1e18)

@@ -632,7 +632,7 @@ export const useReturns = () => {
 	} = useClaimed()
 
 	return useMemo(() => {
-		if (loadingClaimed || !earned.length || !prices?.yaxis)
+		if (loadingClaimed || !earned.length || !prices?.nume)
 			return defaultUseReturnsState
 
 		const [pendingMetaVault, pendingGovernance, pendingLp] = earned.map(
@@ -647,15 +647,15 @@ export const useReturns = () => {
 			new BigNumber(claimedMetaVault.toString())
 				.plus(pendingMetaVault.toString())
 				.dividedBy(10 ** 18)
-				.multipliedBy(prices?.yaxis),
+				.multipliedBy(prices?.nume),
 			new BigNumber(claimedLp.toString())
 				.plus(pendingLp.toString())
 				.dividedBy(10 ** 18)
-				.multipliedBy(prices?.yaxis),
+				.multipliedBy(prices?.nume),
 			new BigNumber(claimedGovernance.toString())
 				.plus(pendingGovernance.toString())
 				.dividedBy(10 ** 18)
-				.multipliedBy(prices?.yaxis),
+				.multipliedBy(prices?.nume),
 		]
 		return {
 			rewards: {
