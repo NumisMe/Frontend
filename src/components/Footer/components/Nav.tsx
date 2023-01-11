@@ -13,17 +13,7 @@ const Nav: React.FC = () => {
 	const { xs, sm } = useBreakpoint()
 	return (
 		<StyledRow align="middle">
-			<StyledCol xs={24} sm={24} md={9}>
-				<Row justify="center">
-					<StyledLink
-						target="_blank"
-						href="/#/swap"
-						rel="noopener noreferrer"
-					>
-						YAXIS Swap
-					</StyledLink>
-				</Row>
-			</StyledCol>
+			<StyledCol xs={24} sm={24} md={9} />
 
 			<StyledCol2 xs={24} sm={24} md={7}>
 				<Row justify="center">
